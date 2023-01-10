@@ -304,5 +304,235 @@ cleanapp:
 
 **将makefile优化（七）**
 
-> 根据不同的操作系统启动不同的代码
+> 根据不同的操作系统启动不同的代码。
+>
+> 注意：Windows下路径使用\，而Linux下路径使用/
+>
+> 又由于不能将变量设置为\（处于行末自动变为换行，已经查过了：就是不能把\设置为变量）
+>
+> 所以只能写两套代码
+
+[(19条消息) Linux与windows下makefile的不同之处_罗蜜斯丹的博客-CSDN博客_makefile 区分linux和win](https://blog.csdn.net/Langdon1996/article/details/105037904)
+
+```makefile
+ifeq ($(OS),Windows)		#Windows下
+VPATH = .\source
+SRCPATH = .\source
+INCPATH = .\include
+MIDPATH = .\midfile
+OUTPUTPATN = .\output
+LIBPATH = .\lib
+LIBNAME = math
+LIB = -L$(LIBPATH) -l$(LIBNAME)
+INC = -I $(INCPATH)
+OBJECTS = main.o add.o min.o
+EXE = main.exe
+CFLAGS := -O2 -g
+
+$(EXE):main.o libmath.a
+	g++ $(MIDPATH)\main.o $(LIB) $(CFLAGS) -o $(OUTPUTPATN)\$(EXE)
+	echo exe build success!
+libmath.a:add.o min.o
+	ar -r $(LIBPATH)\libmath.a $(MIDPATH)\min.o $(MIDPATH)\add.o
+$(OBJECTS):%.o:%.cpp
+	g++ -c $(CFLAGS) $(INC) $< -o $(MIDPATH)\$@
+else						#Linux下
+VPATH = ./source
+SRCPATH = ./source
+INCPATH = ./include
+MIDPATH = ./midfile
+OUTPUTPATN = ./output
+LIBPATH = ./lib
+LIBNAME = math
+LIB = -L$(LIBPATH) -l$(LIBNAME)
+INC = -I $(INCPATH)
+OBJECTS = main.o add.o min.o
+EXE = main.exe
+CFLAGS := -O2 -g
+
+$(EXE):main.o libmath.a
+	g++ $(MIDPATH)/main.o $(LIB) $(CFLAGS) -o $(OUTPUTPATN)/$(EXE)
+	echo exe build success!
+libmath.a:add.o min.o
+	ar -r $(LIBPATH)/libmath.a $(MIDPATH)/min.o $(MIDPATH)/add.o
+$(OBJECTS):%.o:%.cpp
+	g++ -c $(CFLAGS) $(INC) $< -o $(MIDPATH)/$@
+endif
+
+
+.PHONY:cleanall
+cleanall:cleanobj cleanlib cleanapp
+ifeq ($(OS),Windows_NT)		#Windows下
+cleanobj:
+	-del .\midfile\*.o 
+cleanlib:
+	-del .\lib\*.a
+cleanapp:
+	-del .\output\$(EXE)
+else						#Linux下
+UNAME := $(shell uname -s)
+ifeq ($(UNAME),Linux)
+cleanobj:
+	-rm -f ./midfile/*.o
+cleanlib:
+	-rm -f ./lib/*.a
+cleanapp:
+	-rm -f ./output/$(EXE)
+else
+endif
+endif
+```
+
+**将makefile优化（八）**
+
+> 对于问题七，可以使用两个程序，根据操作系统，来切换makefile里的路径表示符
+>
+> 但是出现另一个问题：clean模块不需要被替换
+
+> 因此：创建另一个文件来存储clean模块，并在makefile里include这个模块，这样替换时就不会被替换，同时也能调用到clean模块。另外创建transform模块来根据操作系统生成对应的程序并执行。
+
+![](../Linux相关/picture/目录结构8.png)
+
+>注意：经测试，在Windows下（vscode）使用g++编译出现bug，文件读取时最后一行的某些数据会重复，因此为了防止这个bug，将最后一行加入很多空格。（vs和Linux没有问题）
+>
+>问题解决：使用`ios::binary`，读写都要。
+
+```C++
+//L2W.cpp
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <cstring>
+using namespace std;
+
+int main(int argc, char* argv[]) {
+    const int strnum = 1024;
+    string file_path = "./makefile";   //文件路径
+    ifstream instream(file_path,ios::in|ios::binary);
+    if (!instream)
+        cout << "input:open " << file_path << " error" << endl;
+    char filestr[strnum] = { 0 };
+    instream.read(filestr, strnum-2);
+    instream.close();
+    
+    replace(filestr, filestr + strnum, '/', '\\');
+    
+    ofstream outstream(file_path,ios::out|ios::binary);
+    if (!outstream)
+        cout << "output:open " << file_path << " error" << endl;
+    outstream.write(filestr, strlen(filestr));
+    outstream.close();
+    return 0;
+}
+
+//W2L.cpp
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <cstring>
+using namespace std;
+
+int main(int argc, char* argv[]) {
+    const int strnum = 1024;
+    string file_path = "./makefile";   //文件路径
+    ifstream instream(file_path,ios::in|ios::binary);
+    if (!instream)
+        cout << "input:open " << file_path << " error" << endl;
+    char filestr[strnum] = { 0 };
+    instream.read(filestr, strnum-2);
+    instream.close();
+    
+    replace(filestr, filestr + strnum, '\\', '/');
+    
+    ofstream outstream(file_path,ios::out|ios::binary);
+    if (!outstream)
+        cout << "output:open " << file_path << " error" << endl;
+    outstream.write(filestr, strlen(filestr));
+    outstream.close();
+    return 0;
+}
+```
+
+> makefile
+
+```makefile
+VPATH = .\source
+SRCPATH = .\source
+INCPATH = .\include
+MIDPATH = .\midfile
+OUTPUTPATN = .\output
+LIBPATH = .\lib
+LIBNAME = math
+LIB = -L$(LIBPATH) -l$(LIBNAME)
+INC = -I $(INCPATH)
+OBJECTS = main.o add.o min.o
+EXE = main.exe
+CFLAGS := -O2 -g -std=c++11
+TSFEXE = Transf.exe
+$(EXE):main.o libmath.a
+	g++ $(MIDPATH)\main.o $(LIB) $(CFLAGS) -o $(OUTPUTPATN)\$(EXE)
+	echo exe build success!
+libmath.a:add.o min.o
+	ar -r $(LIBPATH)\libmath.a $(MIDPATH)\min.o $(MIDPATH)\add.o
+$(OBJECTS):%.o:%.cpp
+	g++ -c $(CFLAGS) $(INC) $< -o $(MIDPATH)\$@
+
+include transform.mk
+
+include clean.mk
+```
+
+> clean.mk
+>
+> 注意：clean.mk不能放到文件夹中，否则在include .\mk\clean在Linux下会先进行检查，从而不能执行tsf命令
+
+```makefile
+.PHONY:cleanall
+cleanall:cleanobj cleanlib cleanapp
+ifeq ($(OS),Windows_NT)
+cleanobj:
+	-del .\midfile\*.o 
+cleanlib:
+	-del .\lib\*.a
+cleanapp:
+	-del .\output\$(EXE)
+cleantsf:
+	-del .\Transf.exe
+else
+UNAME := $(shell uname -s)
+ifeq ($(UNAME),Linux)
+cleanobj:
+	-rm -f ./midfile/*.o
+cleanlib:
+	-rm -f ./lib/*.a
+cleanapp:
+	-rm -f ./output/$(EXE)
+else
+endif
+endif
+```
+
+> transform.mk
+
+```makefile
+ifeq ($(OS),Windows_NT)
+tsf:
+	g++ L2W.cpp $(CFLAGS) -o $(TSFEXE)
+	.\$(TSFEXE)
+	-del .\$(TSFEXE)
+else
+UNAME := $(shell uname -s)
+ifeq ($(UNAME),Linux)
+tsf:
+	g++ W2L.cpp $(CFLAGS) -o $(TSFEXE)
+	./$(TSFEXE)
+	rm -f ./$(TSFEXE)
+else
+endif
+endif
+```
+
+
+
+
 
