@@ -532,7 +532,60 @@ endif
 endif
 ```
 
+**将makefile优化（九）**
+
+> 使用C++替换字符会因为makefile检查文件目录，不能将mk文件放到子目录下。所以使用python脚本代替C++程序，替换字符。
+
+![](picture/目录9.png)
+
+> 注意：在windows下使用python命令，在Linux下使用python3命令
+
+```python
+#trans.py
+import re
+import sys
+f=open('./makefile','r')
+alllines=f.readlines()
+f.close()
+f=open('./makefile','w+')
+
+sysname = sys.platform
+if sysname == "win32":
+    for eachline in alllines:
+        a=re.sub('/',r'\\',eachline)
+        f.writelines(a)
+elif sysname == "linux":
+    for eachline in alllines:
+        a=re.sub(r'\\','/',eachline)
+        f.writelines(a)
+f.close()
+```
+
+> makefile
+
+```makefile
+VPATH = ./source
+SRCPATH = ./source
+INCPATH = ./include
+MIDPATH = ./midfile
+OUTPUTPATN = ./output
+LIBPATH = ./lib
+LIBNAME = math
+LIB = -L$(LIBPATH) -l$(LIBNAME)
+INC = -I $(INCPATH)
+OBJECTS = main.o add.o min.o
+EXE = main.exe
+CFLAGS := -O2 -g -std=c++11
+TSFEXE = Transf.exe
+$(EXE):main.o libmath.a
+	g++ $(MIDPATH)/main.o $(LIB) $(CFLAGS) -o $(OUTPUTPATN)/$(EXE)
+	echo exe build success!
+libmath.a:add.o min.o
+	ar -r $(LIBPATH)/libmath.a $(MIDPATH)/min.o $(MIDPATH)/add.o
+$(OBJECTS):%.o:%.cpp
+	g++ -c $(CFLAGS) $(INC) $< -o $(MIDPATH)/$@
 
 
-
+include ./mk/clean.mk
+```
 
