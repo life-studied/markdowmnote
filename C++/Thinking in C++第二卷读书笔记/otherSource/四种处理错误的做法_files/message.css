@@ -1,7 +1,0 @@
-import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/message.css");import { updateStyle as __vite__updateStyle, removeStyle as __vite__removeStyle } from "/@vite/client"
-const __vite__id = "/home/chatgpt-demo/src/message.css"
-const __vite__css = ".message pre {\n  background-color: #64748b10;\n  font-size: 0.8rem;\n  padding: 0.4rem 1rem;\n}\n\n.message .hljs {\n  background-color: transparent;\n}\n\n.message table {\n  font-size: 0.8em;\n}\n\n.message table thead tr {\n  background-color: #64748b40;\n  text-align: left;\n}\n\n.message table th, .message table td {\n  padding: 0.6rem 1rem;\n}\n\n.message table tbody tr:last-of-type {\n  border-bottom: 2px solid #64748b40;\n}"
-__vite__updateStyle(__vite__id, __vite__css)
-import.meta.hot.accept()
-export default __vite__css
-import.meta.hot.prune(() => __vite__removeStyle(__vite__id))
