@@ -1,0 +1,7 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/layouts/Layout.astro?astro&type=style&index=0&lang.css");import { updateStyle as __vite__updateStyle, removeStyle as __vite__removeStyle } from "/@vite/client"
+const __vite__id = "/home/chatgpt-demo/src/layouts/Layout.astro?astro&type=style&index=0&lang.css"
+const __vite__css = "html {\n\t\tfont-family: system-ui, sans-serif;\n\t\tbackground-color: #171921;\n\t\tcolor: #ffffff;\n\t}\n\tmain {\n\t\tmax-width: 70ch;\n\t\tmargin: 0 auto;\n\t\tpadding: 6rem 2rem 4rem;\n\t}"
+__vite__updateStyle(__vite__id, __vite__css)
+import.meta.hot.accept()
+export default __vite__css
+import.meta.hot.prune(() => __vite__removeStyle(__vite__id))
