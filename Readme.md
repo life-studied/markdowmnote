@@ -77,7 +77,7 @@
 | 学习内容       | 资源                                                         | 开始时间   | 进度 |
 | -------------- | ------------------------------------------------------------ | ---------- | ---- |
 | Window游戏制作 | 《逐梦旅程：Windows游戏编程之从零开始》<br />[微软官方文档](https://learn.microsoft.com/zh-cn/windows/win32/apiindex/windows-api-list) | 2022年11月 | 40%  |
-| cocos2d-x引擎  | [cocos2d-x 4.0 API](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/)<br />《Cocos2d-x 3.X游戏开发入门精解》 | 2023年5月  | 10%  |
+| cocos2d-x引擎  | [cocos2d-x 4.0 API](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/)<br />《Cocos2d-x 3.X游戏开发入门精解》<br />[b站教程](https://www.bilibili.com/video/BV1Px411v7u8?p=158) | 2023年5月  | 10%  |
 
 ## 4. 逆向工程
 
