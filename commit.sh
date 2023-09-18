@@ -1,3 +1,3 @@
 git add .
 git commit -m "update"
-git push markdown master
+git push markdownnote master
