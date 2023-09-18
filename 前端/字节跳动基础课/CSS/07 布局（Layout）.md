@@ -133,5 +133,117 @@ div {
 
 ```
 
-## 4.Flex Box
+## 4.Flex Box（常用）
 
+​		Flex Box是一种新的排版上下文，用于控制子级盒子的：
+
+* 摆放的流向（上下左右）
+* 摆放的顺序
+* 盒子的宽度和高度
+* 水平和垂直方向的对齐
+* 是否允许折行
+
+---
+
+下面是一个FlexBox的演示，默认是从左到右的一个流向。
+
+```html
+<div class="container">
+  <div class="a">A</div>
+  <div class="b">B</div>
+  <div class="c">C</div>
+</div>
+
+<style>
+.container {
+  display: flex;
+  border: 2px solid #966;
+}
+
+.a, .b, .c {
+  text-align: center;
+  padding: 1em;
+}
+
+.a {
+  background: #fcc;
+}
+```
+
+![image-20230828102124414](./assets/image-20230828102124414.png)
+
+### 主轴和侧轴（FlexBox概念）
+
+主轴和侧轴是FlexBox中的一种对齐排版概念，用于将内容在正交的两个方向上进行对齐。
+
+![image-20230828102413423](./assets/image-20230828102413423.png)
+
+#### 主轴排版样式
+
+##### justify-content
+
+可以通过下面的样式来修改**主轴**上内容的排版：
+
+![image-20230828102517430](./assets/image-20230828102517430.png)
+
+#### 侧轴排版样式
+
+##### align-items
+
+可以通过下面的样式来修改**侧轴**上内容的排版：
+
+![image-20230828102752393](./assets/image-20230828102752393.png)
+
+##### align-self
+
+使用这种属性可以设置侧轴上的某一个专门的对齐样式
+
+### Flexibility
+
+可以设置子项的空间弹性：当容器有剩余空间时，会伸展；容器空间不够时，会收缩。
+
+* flex-grow -> 有剩余空间时的伸展能力
+* flex-shrink -> 容器空间不足时收缩的能力
+* flex-basis -> 没有伸展或收缩时的基础长度
+
+---
+
+​	下面是一个简单的Flexbility演示，有`flex-grow`属性的元素会根据比例进行拓展空间，没有的则根据基础值（width）来保证其基本空间。
+
+```html
+<div class="container">
+    <div class="a">A</div>
+    <div class="b">B</div>
+    <div class="c">C</div>
+</div>
+
+<style>
+    .container {
+        display: flex;
+    }
+
+    .a,
+    .b,
+    .c {
+        text-align: center;
+        width: 100px;
+        padding: 1em;
+    }
+
+    .a {
+        flex-grow: 2;
+        background-color: aqua;
+    }
+
+    .b {
+        flex-grow: 1;
+        background-color: aliceblue;
+    }
+
+    .c {
+        background-color: chartreuse;
+    }
+</style>
+```
+
+![image-20230828103908034](./assets/image-20230828103908034.png)

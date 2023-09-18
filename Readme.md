@@ -2,6 +2,8 @@
 
 ​	本项目记录了从2021年暑假开始的学习笔记。
 
+​	更新时间：2023年9月19日
+
 ## 1. 编程语言
 
 ### 1.1 C/C++
@@ -78,6 +80,7 @@
 | -------------- | ------------------------------------------------------------ | ---------- | ---- |
 | Window游戏制作 | 《逐梦旅程：Windows游戏编程之从零开始》<br />[微软官方文档](https://learn.microsoft.com/zh-cn/windows/win32/apiindex/windows-api-list) | 2022年11月 | 40%  |
 | cocos2d-x引擎  | [cocos2d-x 4.0 API](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/)<br />《Cocos2d-x 3.X游戏开发入门精解》<br />[b站教程](https://www.bilibili.com/video/BV1Px411v7u8?p=158) | 2023年5月  | 10%  |
+| 虚幻引擎       | [b站教程1(蓝图入门)](https://www.bilibili.com/video/BV1KB4y1278E)<br />[b站教程2(模型编辑)](https://www.bilibili.com/video/BV1Cd4y1V7G5)<br />[b站教程3(UEC++入门)](https://www.bilibili.com/video/BV1Bf4y1D7AT) | 2023年9月  | 20%  |
 
 ## 4. 逆向工程
 
@@ -103,5 +106,5 @@
 | 学习内容 | 资源                                                         | 开始时间  | 进度 |
 | -------- | ------------------------------------------------------------ | --------- | ---- |
 | 像素画   | [b站教程](https://www.bilibili.com/video/BV144411v7iS/)<br />[像素画教程电子书](https://www.bilibili.com/video/BV1zA411p71d/) | 2023年1月 | 50%  |
-| 音乐     | [b站教程](https://www.bilibili.com/video/BV1jW411J765/)      | 2023年6月 | 30%  |
+| 音乐     | [b站教程(基础乐理入门)](https://www.bilibili.com/video/BV1jW411J765/)<br />[b站教程(FLStudio入门)](https://www.bilibili.com/video/BV1d441187Kq) | 2023年6月 | 30%  |
 | 素描     | [b站教程](https://www.bilibili.com/video/BV1zu41127wh/)      | 2022年5月 | 30%  |
