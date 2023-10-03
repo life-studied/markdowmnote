@@ -9,5 +9,5 @@ total=$((countmd + countxmind))
 
 echo "在当前目录及其子文件夹中找到了 $total 个笔记。"
 echo "markdown笔记: $countmd 个。"
-echo "xmind笔记	  : $countxmind 个。"
+echo "xmind笔记   : $countxmind 个。"
 read -n 1 -s -r -p "按任意键结束..."
