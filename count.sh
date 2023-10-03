@@ -1,8 +1,11 @@
 #!/bin/bash
 
-file_extension=".md"
+md_extension=".md"
+xmind_extension=".xmind"
 
-count=$(find "$(pwd)" -type f -name "*$file_extension" | wc -l)
+countmd=$(find "$(pwd)" -type f -name "*$md_extension" | wc -l)
+countxmind=$(find "$(pwd)" -type f -name "*$xmind_extension" | wc -l)
+total=$((countmd + countxmind))
 
-echo "在当前目录及其子文件夹中找到了 $count 个 .md 文件。"
+echo "在当前目录及其子文件夹中找到了 $total 个笔记。"
 read -n 1 -s -r -p "按任意键结束..."
