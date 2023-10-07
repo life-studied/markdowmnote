@@ -38,7 +38,7 @@ class User : public oatpp::DTO {
 
 ### 1.1.1 基础类型
 
-​	这些类型本质上都是指针，它们底层指向一个真正的C++值类型。
+​	这些类型本质上都是**指针**，它们底层指向一个真正的C++值类型。
 
 | Type                                                         | Underlying Type | Default Value |
 | ------------------------------------------------------------ | --------------- | ------------- |
@@ -70,7 +70,7 @@ v_int32 va = *a;
 | [Vector](https://oatpp.io/api/latest/oatpp/core/Types/#vector) | `std::vector<T>`                   | `nullptr`     |
 | [List](https://oatpp.io/api/latest/oatpp/core/Types/#list)   | `std::list<T>`                     | `nullptr`     |
 | [UnorderedSet](https://oatpp.io/api/latest/oatpp/core/Types/#unorderedset) | `std::unordered_set<T>`            | `nullptr`     |
-| [Fields](https://oatpp.io/api/latest/oatpp/core/Types/#fields) | `std::list<std::pair<Key, Value>>` | `nullptr`     |
+| [Fields](https://oatpp.io/api/latest/oatpp/core/Types/#fields)（Map） | `std::list<std::pair<Key, Value>>` | `nullptr`     |
 | [UnorderedFields](https://oatpp.io/api/latest/oatpp/core/Types/#unorderedfields) | `std::unordered_map<Key, Value>`   | `nullptr`     |
 
 ##### Examples
@@ -261,7 +261,7 @@ DTO_FIELD(String, name) = "Ivan";
 
 #### 2.2.1 `Object<DTO>`（DTO::Wrapper）
 
-​	`Object<DTO>`用于对DTO的复用，其本质上等于`DTO::Wrapper`。详细见DTO高级说明。
+​	`Object<DTO>`用于对DTO的复用，其本质上等于`DTO::Wrapper`。详细见[DTO高级说明](#highlevel)。
 
 ```cpp
 DTO_FIELD(Object<User>, user);
@@ -269,13 +269,13 @@ DTO_FIELD(Object<User>, user);
 
 #### 2.2.2 List
 
-1. List of primitives:
+1. List of **primitives**:
 
 ```cpp
 DTO_FIELD(List<Int32>, colors);
 ```
 
-2. List of Objects:
+2. List of **Objects**:
 
 ```cpp
 DTO_FIELD(List<Object<MyObject>>, colors);
@@ -283,7 +283,7 @@ DTO_FIELD(List<Object<MyObject>>, colors);
 
 #### 2.2.3 Map
 
-​	Map都是以String为键的。
+​	Map都是以String为键，因此只需设置value类型。
 
 1. Map `String --> Int32`:
 
@@ -297,7 +297,7 @@ DTO_FIELD(Fields<Int32>, colors);
 DTO_FIELD(Fields<Object<MyObject>>, colors);
 ```
 
-## 3.DTO的高级说明
+## 3.<span id="highlevel">DTO的高级说明</span>
 
 ### 3.1 DTO代码复用
 

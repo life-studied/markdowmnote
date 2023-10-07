@@ -12,7 +12,7 @@ cmake ..
 
 ## 安装
 
-​	在`build`下以管理员身份打开powershell/cmd，运行
+​	在`build`下**以管理员身份**打开powershell/cmd，运行
 
 ```shell
 cmake --build . --target INSTALL
