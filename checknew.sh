@@ -8,5 +8,6 @@ if git diff --quiet master origin/master; then
 else
   echo "远程main分支有更新，本地执行更新"
   git pull origin master
+  git reset --hard origin/master
   exit 1
 fi
