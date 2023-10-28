@@ -146,6 +146,10 @@ int main()
 
 ​	注意：由于两个消费者使用的是同一个互斥锁，因此第二个消费者即使被唤醒了，也要等待第一个消费者获取完仅存的资源（此时队空），并释放锁之后的空隙，才能重新获取到互斥锁，并继续执行。在此时如果再次判断队空，则可以再次进入休眠，避免虚假唤醒。
 
+---
+
+​	**新的方法**是必须使用`unique_lock`才能使用：将`cv.wait(lock)`添加lambda表达式，变为`cv.wait(lock, [](){ return !q.empty();});`。
+
 ```C++
 #include <iostream>
 #include <thread>
@@ -185,6 +189,10 @@ void task2()
     {
         std::unique_lock<std::mutex> lock(mtx);
 
+        // 或者使用cv.wait(lock, [](){ return !q.empty();});
+        // 在被唤醒时，会检测lambda表达式是否满足条件
+        	// 如果不满足，则会重新解锁，并进入休眠
+        	// 如果满足，则会解除对资源的持有，进入处理程序
         while (q.empty())
         {
             cv.wait(lock);		//阻塞，并释放互斥锁，在被唤醒后重新获取互斥锁
