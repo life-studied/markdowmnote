@@ -2,13 +2,14 @@
 
 ​	本项目记录了从2021年暑假开始的学习笔记。
 
-​	更新时间：2023年10月3日
+​	更新时间：2023年11月20日
 
-## 0. 三个脚本
+## 0. 四个脚本
 
 * `rewrite.sh`：本脚本用于恢复笔记文件时间戳到git最近一次提交的时间戳，以保证笔记仓库移动后，博客系统正常工作。
 * `count.sh`：本脚本用于统计笔记数量。
 * `commit.sh`：本脚本用于快速commit。
+* `checknew.sh`：本脚本用于服务器上检查remote更新。
 
 ## 1. 编程语言
 
@@ -87,12 +88,13 @@
 | Window游戏制作 | 《逐梦旅程：Windows游戏编程之从零开始》<br />[微软官方文档](https://learn.microsoft.com/zh-cn/windows/win32/apiindex/windows-api-list) | 2022年11月 | 40%  |
 | cocos2d-x引擎  | [cocos2d-x 4.0 API](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/)<br />《Cocos2d-x 3.X游戏开发入门精解》<br />[b站教程](https://www.bilibili.com/video/BV1Px411v7u8?p=158) | 2023年5月  | 10%  |
 | 虚幻引擎       | [b站教程1(蓝图入门)](https://www.bilibili.com/video/BV1KB4y1278E)<br />[b站教程2(模型编辑)](https://www.bilibili.com/video/BV1Cd4y1V7G5)<br />[b站教程3(UEC++入门)](https://www.bilibili.com/video/BV1Bf4y1D7AT) | 2023年9月  | 20%  |
+| 策划           | [b站教程](https://www.bilibili.com/video/BV1VG411U798/)      | 2023年11月 | 10%  |
 
 ## 4. 逆向工程
 
 | 学习内容         | 资源                                                         | 开始时间   | 进度 |
 | ---------------- | ------------------------------------------------------------ | ---------- | ---- |
-| 逆向工程         | 《逆向工程核心原理》                                         | 2023年3月  | 70%  |
+| 逆向工程         | 《逆向工程核心原理》<br />[b站教程(逆向汇编基础)](https://www.bilibili.com/video/BV1EN411B7ZR/) | 2023年3月  | 70%  |
 | Cheat Engine     | [b站Cheat Engine教程](https://www.bilibili.com/video/BV1nR4y1u7PZ/) | 2023年7月  | 100% |
 | PE文件结构与应用 | [b站PE文件教程](https://www.bilibili.com/video/BV1iT41137fz/) | 2022年11月 | 100% |
 
