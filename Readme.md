@@ -19,7 +19,7 @@
 | -------------- | ------------------------------------------------------------ | ---------- | ---- |
 | C语言基础      | 《C Primer Plue》<br />[b站翁恺C语言课程](https://www.bilibili.com/video/BV1Ls411w7rx/) | 2021年7月  | 100% |
 | C++基础        | 《C++ Primer Plus》                                          | 2022年12月 | 100% |
-| C++进阶        | 《现代C++语言核心特性解析》<br />《Thinking in C++》<br />[b站C++多线程教程](https://www.bilibili.com/video/BV1g5411Z72H/) | 2022年12月 | 70%  |
+| C++进阶        | 《现代C++语言核心特性解析》<br />《Thinking in C++（第二卷）》<br />[b站C++多线程教程](https://www.bilibili.com/video/BV1g5411Z72H/)<br />《C++ Concurrency In Action》<br />《Effective Modern C++》 | 2022年12月 | 70%  |
 | Makefile       | [b站Makefile教程](https://www.bilibili.com/video/BV188411L7d2/)<br />《跟我一起写makefile》 | 2022年7月  | 100% |
 | CMake          | [b站CMake教程](https://www.bilibili.com/video/BV14s4y1g7Zj/) | 2022年7月  | 100% |
 | 静态库与动态库 | [b站教程](https://www.bilibili.com/video/BV1kb4y1m7i3/)      | 2022年12月 | 100% |
@@ -28,6 +28,8 @@
 | MFC            | 某网课                                                       | 2022年9月  | 50%  |
 | WindowsApi     | [微软官方文档](https://learn.microsoft.com/zh-cn/windows/win32/apiindex/windows-api-list) | 2022年9月  | 100% |
 | Socket编程     | [b站Socket教程](https://www.bilibili.com/video/BV11Z4y157RY/) | 2023年3月  | 100% |
+| ImGui          | [b站教程](https://www.bilibili.com/video/BV13e4y1m73N/?spm_id_from=333.337.search-card.all.click) | 2023年10月 | 80%  |
+| Mysql连接池    | [b站教程](https://www.bilibili.com/video/BV1Fr4y1s7w4/?spm_id_from=333.337.search-card.all.click) | 2023年11月 | 100% |
 
 ### 1.2 Java
 
@@ -104,7 +106,7 @@
 | --------- | ------------------------------------------------------------ | --------- | ---- |
 | Linux基础 | 《鸟哥的Linux私房菜》<br />[b站教程](https://www.bilibili.com/video/BV1n84y1i7td/) | 2022年3月 | 100% |
 | Docker    | 某网课                                                       | 2023年4月 | 100% |
-| Mysql     | 《mysql必知必会》<br />某网课                                | 2022年9月 | 100% |
+| Mysql     | 《mysql必知必会》<br />某网课<br />[b站Mysql连接池教程](https://www.bilibili.com/video/BV1Fr4y1s7w4/?spm_id_from=333.337.search-card.all.click) | 2022年9月 | 100% |
 | Git       | [b站教程](https://www.bilibili.com/video/BV1vy4y1s7k6/)      | 2022年4月 | 100% |
 | Redis     | [b站教程](https://www.bilibili.com/video/BV1Jj411D7oG/)<br />某网课 | 2023年4月 | 40%  |
 | Vim       | [b站教程](https://www.bilibili.com/video/BV1qD4y1W7aG/)      | 2023年5月 | 30%  |
