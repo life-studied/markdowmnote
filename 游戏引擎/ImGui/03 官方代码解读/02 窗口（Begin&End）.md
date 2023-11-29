@@ -8,7 +8,7 @@ bool ImGui::Begin(const char* name, bool* p_open, ImGuiWindowFlags flags)
 
 参数说明：
 
-* name：窗口名称
+* name：窗口名称（中文用`u8`）
 * p_open（可选）：写入关闭状态的内存地址
 * flags（可选）：窗口样式
 
@@ -60,5 +60,38 @@ addflag(ImGuiWindowFlags_NoCollapse);
 		ImGui::End();
 	}
 }
+```
+
+## 实践思路1（多窗口）
+
+​	创建多窗口，设置一个主窗口作为背景填满整个窗口，其它窗口允许移动。
+
+```C++
+ImGuiWindowFlags_ wflags{};
+auto addflag = [&wflags](ImGuiWindowFlags_ f) { wflags = static_cast<ImGuiWindowFlags_>(wflags | f); };
+addflag(ImGuiWindowFlags_NoDecoration);
+
+{
+	static bool isOpen = true;
+	if (isOpen)
+	{
+		ImGui::Begin("Test", &isOpen, wflags);
+		ImGui::End();
+	}
+}
+```
+
+## 实践思路2（隐藏背景窗口）
+
+​	glfw添加如下设置：
+
+```C++
+	glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);  // 设置 背景窗口 透明
+```
+
+​	io设置：
+
+```C++
+    io.ConfigViewportsNoAutoMerge = true;                       // 参考评论，建议加上这行，防止窗口自动合并上透明窗口
 ```
 
