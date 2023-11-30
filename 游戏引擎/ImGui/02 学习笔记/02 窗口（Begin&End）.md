@@ -83,6 +83,8 @@ addflag(ImGuiWindowFlags_NoDecoration);
 
 ## 实践思路2（隐藏背景窗口）
 
+### glfw
+
 ​	glfw添加如下设置：
 
 ```C++
@@ -92,6 +94,21 @@ addflag(ImGuiWindowFlags_NoDecoration);
 ​	io设置：
 
 ```C++
-    io.ConfigViewportsNoAutoMerge = true;                       // 参考评论，建议加上这行，防止窗口自动合并上透明窗口
+    io.ConfigViewportsNoAutoMerge = true;                       // 防止窗口自动合并上透明窗口
 ```
 
+### dx
+
+​	修改showwindow第二个参数。
+
+```C++
+::ShowWindow(hwnd, SW_HIDE);
+```
+
+​	io设置：
+
+```C++
+    io.ConfigViewportsNoAutoMerge = true;                       // 防止窗口自动合并上透明窗口
+```
+
+### 
