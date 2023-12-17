@@ -2,6 +2,9 @@
 
 ## 3.1 字符串拼接
 
+* 使用+运算符
+* 使用Append函数
+
 ```C++
 FString s1 = TEXT("Hello World");
 FString s2 = TEXT(" and you");
