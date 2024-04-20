@@ -1,0 +1,10 @@
+{
+  "promptDelete": false,
+  "newFileLocation": "current",
+  "attachmentFolderPath": "./asserts",
+  "mobileToolbarCommands": [
+    "editor:insert-codeblock"
+  ],
+  "spellcheck": false,
+  "autoPairMarkdown": false
+}

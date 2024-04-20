@@ -1,0 +1,183 @@
+{
+  "main": {
+    "id": "2e950074d872cb0f",
+    "type": "split",
+    "children": [
+      {
+        "id": "172be20193f191c1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "220ea200ab541c68",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "C++/cmake/22 检测编译器.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "e200c1c488efa49a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "C++/cmake/23 生成器表达式.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "dcd785b5ee177e53",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "50c834e26651ef4a",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "C++/boost/00 download and install.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      },
+      {
+        "id": "66cd4267457e6e56",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "cmake",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "a3f1ba03bc276c22",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true
+          }
+        }
+      },
+      {
+        "id": "c2f8e3c250a01159",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {}
+        }
+      },
+      {
+        "id": "0f98d2f2a9785c56",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical"
+          }
+        }
+      }
+    ],
+    "currentTab": 4
+  },
+  "right": {
+    "id": "6e68fdf2c10ccd98",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "ff71ee37ae9e116a",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "C++/cmake/23 生成器表达式.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "cd079cfc114d4c42",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "file": "C++/cmake/23 生成器表达式.md",
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "f8f889856f1f1fda",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "C++/cmake/23 生成器表达式.md"
+          }
+        }
+      },
+      {
+        "id": "a8a2f455322856df",
+        "type": "leaf",
+        "state": {
+          "type": "advanced-tables-toolbar",
+          "state": {}
+        }
+      }
+    ],
+    "currentTab": 2
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
+    }
+  },
+  "active": "e200c1c488efa49a",
+  "lastOpenFiles": [
+    "pullnew.sh",
+    "C++/cmake/22 检测编译器.md",
+    "C++/cmake/23 生成器表达式.md",
+    "C++/cmake/05 包含头文件.md",
+    "C++/boost/00 cmake config.md",
+    "C++/boost/asio/03 asio异步读写.md",
+    "C++/boost/asio/06 处理粘包问题.md",
+    "C++/boost/asio/05 读写分离Server.md",
+    "C++/boost/asio/02 asio同步读写readwrite（from buffer）.md",
+    "C++/补充特性/对pair进行hash化.md",
+    "未命名.md",
+    "C++/boost/00 download and install.md"
+  ]
+}
