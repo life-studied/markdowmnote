@@ -6,5 +6,7 @@
     "editor:insert-codeblock"
   ],
   "spellcheck": false,
-  "autoPairMarkdown": false
+  "autoPairMarkdown": false,
+  "tabSize": 4,
+  "showIndentGuide": false
 }

@@ -4,23 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "172be20193f191c1",
+        "id": "6e56756b75269abd",
         "type": "tabs",
         "children": [
           {
-            "id": "220ea200ab541c68",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "C++/cmake/22 检测编译器.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e200c1c488efa49a",
+            "id": "e6e6e8b02f266e37",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -31,8 +19,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -165,11 +152,15 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "e200c1c488efa49a",
+  "active": "e6e6e8b02f266e37",
   "lastOpenFiles": [
-    "pullnew.sh",
-    "C++/cmake/22 检测编译器.md",
+    "代码随想录笔记/01 二分查找.md",
+    "逆向分析基础/1.如何找到看不到的数据.md",
+    "机器学习/2模型描述.md",
+    "机器学习/1监督学习与非监督学习.md",
     "C++/cmake/23 生成器表达式.md",
+    "C++/cmake/22 检测编译器.md",
+    "pullnew.sh",
     "C++/cmake/05 包含头文件.md",
     "C++/boost/00 cmake config.md",
     "C++/boost/asio/03 asio异步读写.md",
