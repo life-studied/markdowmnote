@@ -2,7 +2,10 @@
 
 [TOC]
 
-	bitset容器其实就是个01串。可以被看作是一个bool数组。它比bool数组更优秀的优点是：节约空间，节约时间，支持基本的位运算。在bitset容器中，8位占一个字节，相比于bool数组4位一个字节的空间利用率要高很多。同时，n位的bitset在执行一次位运算的复杂度可以被看作是n/32，这都是bool数组所没有的优秀性质。
+---
+
+​	bitset容器其实就是个01串。可以被看作是一个bool数组。它比bool数组更优秀的优点是：节约空间，节约时间，支持基本的位运算。在bitset容器中，8位占一个字节，相比于bool数组4位一个字节的空间利用率要高很多。同时，n位的bitset在执行一次位运算的复杂度可以被看作是n/32，这都是bool数组所没有的优秀性质。
+
 ## 1. 类模板
 
 ```C++
@@ -21,15 +24,11 @@ template <size_t N> class bitset;
 
 ## 2. 构造函数
 ### **bitset 的定义和初始化：**
-	1、`bitset<size> b;`　　//b 有 size 位，每位都是默认值 0
-
-　　2、`bitset<size> b(num);`　　//b 是 unsigned long 型 num 的一个副本
-
-　　3、`bitset<size> b(str);`　　//b 是 string 对象 str 中的位串副本，即 01 字符串
-
-　　4、`bitset<size> b(str, pos);`　　//b 是 str 从位置 pos 开始的位串的副本 （从左往右）
-
-　　5、`bitset<size> b(str, pos, n);`　　//b 是 str 中从位置 pos 开始，向后 n 位的副本
+1. `bitset<size> b;`　　//b 有 size 位，每位都是默认值 0
+2. `bitset<size> b(num);`　　//b 是 unsigned long 型 num 的一个副本
+3. `bitset<size> b(str);`　　//b 是 string 对象 str 中的位串副本，即 01 字符串
+4. `bitset<size> b(str, pos);`　　//b 是 str 从位置 pos 开始的位串的副本 （从左往右）
+5. `bitset<size> b(str, pos, n);`　　//b 是 str 中从位置 pos 开始，向后 n 位的副本
 
 
 ### bitset 的几个注意点：
@@ -137,9 +136,7 @@ cout << bitset<4>("1101").all() << endl;	//0	(false)
 
 ### **set** 
 
-	​set()函数的作用是把bitset全部置为1.
-
-	特别地，set()函数里面可以传参数。set(u,v)的意思是把bitset中的第u位变成v,v∈0/1。
+​	set()函数的作用是把bitset全部置为1. 特别地，set()函数里面可以传参数。set(u,v)的意思是把bitset中的第u位变成v,v∈0/1。
 
 ```C++
 //成员函数声明
@@ -161,7 +158,7 @@ cout << a << endl;	//输出:111100
 
 ### **reset** 
 
-	​与set()函数相对地，reset()函数将bitset的所有位置为0。而reset()函数只传一个参数，表示把这一位改成0。
+​	与set()函数相对地，reset()函数将bitset的所有位置为0。而reset()函数只传一个参数，表示把这一位改成0。
 
 ```C++
 //成员函数声明
@@ -179,7 +176,7 @@ cout << a << endl;	//输出:011100
 
 ### **flip** 
 
-	​flip()与前两个函数不同，它的作用是将整个bitset容器按位取反。同上，其传进的参数表示把其中一位取反。
+​	flip()与前两个函数不同，它的作用是将整个bitset容器按位取反。同上，其传进的参数表示把其中一位取反。
 
 ```C++
 //成员函数声明
