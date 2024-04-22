@@ -8,5 +8,13 @@
   "spellcheck": false,
   "autoPairMarkdown": false,
   "tabSize": 4,
-  "showIndentGuide": false
+  "showIndentGuide": false,
+  "livePreview": true,
+  "useTab": true,
+  "smartIndentList": true,
+  "showLineNumber": true,
+  "strictLineBreaks": true,
+  "foldHeading": false,
+  "foldIndent": false,
+  "defaultViewMode": "source"
 }
