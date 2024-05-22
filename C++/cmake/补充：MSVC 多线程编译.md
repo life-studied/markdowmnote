@@ -9,3 +9,14 @@ cmake_host_system_information(RESULT CPU_NUMBER_OF_LOGICAL_CORES QUERY NUMBER_OF
 add_compile_options($<$<CXX_COMPILER_ID:MSVC>:/MP${CPU_NUMBER_OF_LOGICAL_CORES}>)
 ```
 
+## 更推荐的做法
+
+### vs2022
+
+​	通过在命令行添加参数，从而避免修改`CMakeLists.txt`。
+
+```shell
+cd build
+cmake --build . --config Release -- /p:CL_MP=true /p:CL_MPCount=12
+```
+

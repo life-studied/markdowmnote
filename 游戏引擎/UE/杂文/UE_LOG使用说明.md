@@ -85,64 +85,7 @@ DECLARE_LOG_CATEGORY_EXTERN_HELPER(LogCategoryName3,All,All);	//5.3版本中未�
 DECLARE_LOG_CATEGORY_EXTERN(<LOG_CATEGORY>, <VERBOSITY_LEVEL>, All);
 ```
 
-​	第一个参数是自定义的日志Category字符串。第二和第三个参数是`ELogVerbosity`的枚举值，用于指定运行时和编译时的日志等级（如下代码所示）。
-
-```C++
-/** 
- * Enum that defines the verbosity levels of the logging system.
- * Also defines some non-verbosity levels that are hacks that allow
- * breaking on a given log line or setting the color.
-**/
-namespace ELogVerbosity
-{
-	enum Type : uint8
-	{
-		/** Not used */
-		NoLogging		= 0,
-
-		/** Always prints a fatal error to console (and log file) and crashes (even if logging is disabled) */
-		Fatal,
-
-		/** 
-		 * Prints an error to console (and log file). 
-		 * Commandlets and the editor collect and report errors. Error messages result in commandlet failure.
-		 */
-		Error,
-
-		/** 
-		 * Prints a warning to console (and log file).
-		 * Commandlets and the editor collect and report warnings. Warnings can be treated as an error.
-		 */
-		Warning,
-
-		/** Prints a message to console (and log file) */
-		Display,
-
-		/** Prints a message to a log file (does not print to console) */
-		Log,
-
-		/** 
-		 * Prints a verbose message to a log file (if Verbose logging is enabled for the given category, 
-		 * usually used for detailed logging) 
-		 */
-		Verbose,
-
-		/** 
-		 * Prints a verbose message to a log file (if VeryVerbose logging is enabled, 
-		 * usually used for detailed logging that would otherwise spam output) 
-		 */
-		VeryVerbose,
-
-		// Log masks and special Enum values
-
-		All				= VeryVerbose,
-		NumVerbosity,
-		VerbosityMask	= 0xf,
-		SetColor		= 0x40, // not actually a verbosity, used to set the color of an output device 
-		BreakOnLog		= 0x80
-	};
-}
-```
+​	第一个参数是自定义的日志Category字符串。第二和第三个参数是`ELogVerbosity`的枚举值，用于指定运行时和编译时的日志等级（见日志详细级别）。
 
 ​	注意：这个宏的展开是继承自 `FLogCategory` 的一个类定义，并且 **声明** 了一个 `LogCategoryName` 的对象，但是它并未定义一个对象：
 
@@ -201,7 +144,64 @@ static struct FLogCategoryTestLog : public FLogCategory<ELogVerbosity::Fatal, EL
 
 ## 2 日志详细级别Verbosity
 
-​	UE_LOG的第二个参数就是上述的枚举类型`ELogVerbosity`，不再赘述。
+​	UE_LOG的第二个参数，就是上述的枚举类型`ELogVerbosity`。
+
+```C++
+/** 
+ * Enum that defines the verbosity levels of the logging system.
+ * Also defines some non-verbosity levels that are hacks that allow
+ * breaking on a given log line or setting the color.
+**/
+namespace ELogVerbosity
+{
+	enum Type : uint8
+	{
+		/** Not used */
+		NoLogging		= 0,
+
+		/** Always prints a fatal error to console (and log file) and crashes (even if logging is disabled) */
+		Fatal,
+
+		/** 
+		 * Prints an error to console (and log file). 
+		 * Commandlets and the editor collect and report errors. Error messages result in commandlet failure.
+		 */
+		Error,
+
+		/** 
+		 * Prints a warning to console (and log file).
+		 * Commandlets and the editor collect and report warnings. Warnings can be treated as an error.
+		 */
+		Warning,
+
+		/** Prints a message to console (and log file) */
+		Display,
+
+		/** Prints a message to a log file (does not print to console) */
+		Log,
+
+		/** 
+		 * Prints a verbose message to a log file (if Verbose logging is enabled for the given category, 
+		 * usually used for detailed logging) 
+		 */
+		Verbose,
+
+		/** 
+		 * Prints a verbose message to a log file (if VeryVerbose logging is enabled, 
+		 * usually used for detailed logging that would otherwise spam output) 
+		 */
+		VeryVerbose,
+
+		// Log masks and special Enum values
+
+		All				= VeryVerbose,
+		NumVerbosity,
+		VerbosityMask	= 0xf,
+		SetColor		= 0x40, // not actually a verbosity, used to set the color of an output device 
+		BreakOnLog		= 0x80
+	};
+}
+```
 
 ## 3 Format
 
@@ -217,3 +217,35 @@ static struct FLogCategoryTestLog : public FLogCategory<ELogVerbosity::Fatal, EL
 | ...       | ...  | `UE_LOG(LogTemp, Warning, TEXT("Current values are: vector %s, float %f, and integer %d"), *ExampleVector.ToString(), ExampleFloat, ExampleInteger);` |
 
 [虚幻引擎中的日志记录 | 虚幻引擎5.3文档 (unrealengine.com)](https://docs.unrealengine.com/5.3/zh-CN/logging-in-unreal-engine/)
+
+## 4. UE_LOGFMT（UE5.2）
+
+| 参数名称           | 说明                                                         |
+| ------------------ | ------------------------------------------------------------ |
+| 位置（Positional） | 使用位置参数时，字段值必须与格式引用的字段完全匹配。例如：`UE_LOGFMT(LogCore, Warning, "Loading `{Name}` failed with error {Error}", Package->GetName(),  ErrorCode); ` |
+| 具名（Named）      | 使用具名参数时，字段值必须包含格式引用的每个字段。顺序无关紧要，而且允许使用额外字段。例如：`UE_LOGFMT(LogCore, Warning, "Loading `{Name}` failed with error {Error}",("Name", Package->GetName()), ("Error", ErrorCode),("Flags", LoadFlags)); `字段名称必须匹配"[A-Za-z0-9_]+"格式，并且在此日志事件中必须唯一。字段值使用SerializeForLog或运算符 `<<(FCbWriter&, FieldType)` 进行序列化。**类别名称（CategoryName）** ：DECLARE_LOG_CATEGORY_* 声明的日志类别的名称。**冗长度（Verbosity）** ：`ELogVerbosity` 中的日志详细级别的名称。**格式（Format）** ：以 `FLogTemplate` 样式格式化字符串。**字段[0-16]（Fields[0-16]）** ： 0到16字段或字段值。 |
+
+## 5. 屏幕调试信息
+
+​	在蓝图中使用Print String用于输出屏幕调试信息。
+
+​	在C++中使用`GEngine->AddOnScreenDebugMessage`，是同一个函数。
+
+```C++
+if (GEngine)
+{
+    GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::White, TEXT("This is an Example on-screen debug message."));
+}
+```
+
+- 第一个输入参数 *key* 会获取一个唯一的整型值，用于防止同一消息被多次添加。
+- 第二个输入参数 *TimeToDisplay* 会获取一个浮点值，用于表示消息在显示多少秒后消失。
+- 第三个输入参数 *DisplayColor* 用于指定文本显示的颜色。
+- 第四个输入参数 *DebugMessage* 是要显示的消息。你可以像使用日志那样，在屏幕调试消息中使用格式说明符和变量。
+
+
+
+## 参考资料
+
+* [虚幻引擎中的日志记录 | 虚幻引擎 5.4 文档 | Epic Developer Community (epicgames.com)](https://dev.epicgames.com/documentation/zh-cn/unreal-engine/logging-in-unreal-engine)
+
