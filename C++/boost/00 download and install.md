@@ -27,7 +27,7 @@
 ### 更详细的b2编译
 
 ```shell
-.\b2.exe install --toolset=msvc-14.2 --build-type=complete --prefix="D:\cppsoft\boost_1_81_0" link=static runtime-link=shared threading=multi debug release
+.\b2.exe install --toolset=msvc-14.2 --build-type=complete --prefix="D:\cppsoft\boost_1_84_0" link=static runtime-link=shared threading=multi debug release
 ```
 
 1. install可以更改为stage, stage表示只生成库(dll和lib), install还会生成包含头文件的include目录。一般来说用stage就可以了，我们将生成的lib和下载的源码包的include头文件夹放到项目要用的地方即可。
