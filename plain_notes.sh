@@ -1,13 +1,13 @@
 #!/bin/bash
 
+# 脚本所在目录
 SCRIPT_DIR=$(dirname "$0")
 
-find . ! -name '.git' -exec rm -rf {} +
+# 移动所有.md文件到脚本所在目录
+find . -type f -name "*.md" -exec mv {} $SCRIPT_DIR \;
 
-git pull origin master
+# 删除脚本所在目录下除了.md文件以外的所有文件和文件夹
+find $SCRIPT_DIR -type f ! -name "*.md" -delete
+find $SCRIPT_DIR -mindepth 1 -type d -exec rm -rf {} +
 
-git reset --hard HEAD
-
-find . -type f -name "*.md" -exec mv {} "$SCRIPT_DIR" \;
-
-echo "����.md�ļ����ƶ����ű�����Ŀ¼��"
+echo "所有.md文件已移动到脚本所在目录。"
