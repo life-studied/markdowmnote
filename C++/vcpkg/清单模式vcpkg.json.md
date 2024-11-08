@@ -74,6 +74,8 @@ target_link_libraries(fibo
 cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=D:\UsefulTools\vcpkg\vcpkg\scripts\buildsystems\vcpkg.cmake
 ```
 
+> 另外vcpkg不支持windows下的mingw，因为预编译好的lib是用msvc编译的，里面的符号对不上。
+
 ---
 
 >补充：vscode cmake tools settings.json
