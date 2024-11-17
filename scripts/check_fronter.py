@@ -25,8 +25,6 @@ def add_yaml_front_matter_to_md_files(file_path):
     if has_front_matter:
         if post["create"] is None:
             post["create"] = file_modified_time
-        else:
-            print(post["create"])
         post["modified"] = file_modified_time
     else:
         post["create"] = file_modified_time
