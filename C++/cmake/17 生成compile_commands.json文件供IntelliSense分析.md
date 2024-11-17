@@ -1,3 +1,6 @@
+---
+create: 2024-03-11
+---
 # 生成compile_commands.json文件供IntelliSense分析
 
 ​	使用如下宏：

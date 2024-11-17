@@ -1,3 +1,6 @@
+---
+create: 2023-12-15
+---
 # 02 FText本地化使用
 
 ​	在Window中，找到Localization Dashboard。

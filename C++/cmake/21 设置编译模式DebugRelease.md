@@ -1,3 +1,6 @@
+---
+create: 2024-03-12
+---
 # 设置编译模式Debug/Release
 
 ## cmake

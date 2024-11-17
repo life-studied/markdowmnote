@@ -1,3 +1,6 @@
+---
+create: 2023-10-12
+---
 # std::move与std::forward的区别
 
 ## 1. 语义上的区别

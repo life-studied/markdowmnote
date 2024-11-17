@@ -1,3 +1,6 @@
+---
+create: 2023-12-01
+---
 # 15 尽可能的使用`constexpr`
 
 ​	`constexpr`和`const`一样，它们是编译期可知的。但是`const`不提供`constexpr`所能保证之事，因为`const`对象不需要在编译期初始化它的值。

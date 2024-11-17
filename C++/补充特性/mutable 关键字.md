@@ -1,3 +1,6 @@
+---
+create: 2023-12-01
+---
 # mutable 关键字
 
 ​	**mutalbe**的中文意思是“可变的，易变的”，跟constant（既C++中的const）是反义词。

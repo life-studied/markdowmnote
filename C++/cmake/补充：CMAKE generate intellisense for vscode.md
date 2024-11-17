@@ -1,3 +1,6 @@
+---
+create: 2024-07-30
+---
 # CMAKE generate intellisense for vscode
 
 ```cmake

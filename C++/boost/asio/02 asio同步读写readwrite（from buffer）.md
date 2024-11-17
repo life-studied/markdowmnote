@@ -1,3 +1,6 @@
+---
+create: 2024-04-11
+---
 # asio同步读写read/write（from buffer）
 
 ​	读写是通过`socket`的成员函数或者全局函数完成的，总是会用到socket。

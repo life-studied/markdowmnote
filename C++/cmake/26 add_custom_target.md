@@ -1,3 +1,6 @@
+---
+create: 2024-04-21
+---
 # add_custom_target
 
 ​	在很多时候，需要在`cmake`中创建一些目标，如`clean`、`copy`等等，这就需要通过`add_custom_target`来指定。同时，`add_custom_command`可以用来完成对`add_custom_target`生成的`target`的补充。

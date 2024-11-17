@@ -1,3 +1,6 @@
+---
+create: 2024-03-02
+---
 # 算法（Matrix and vector）
 
 [TOC]

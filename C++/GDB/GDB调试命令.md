@@ -1,3 +1,6 @@
+---
+create: 2023-07-08
+---
 ## GDB调试命令	
 
 | 调试指令          | shortcut | 作 用                                                        | example                                 |

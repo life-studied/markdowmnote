@@ -1,3 +1,6 @@
+---
+create: 2024-03-21
+---
 # Item Name Table
 
 ## 工具表

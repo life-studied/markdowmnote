@@ -1,3 +1,6 @@
+---
+create: 2024-11-12
+---
 # SO-NAME 与 LINK NAME
 
 ## 动态库的版本号

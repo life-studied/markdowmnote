@@ -1,3 +1,6 @@
+---
+create: 2024-07-30
+---
 # VS添加ARM64组件导致LINK1104:can not open file "msvcprtd.lib"
 
 ## 起因

@@ -1,3 +1,6 @@
+---
+create: 2024-09-16
+---
 # memory_order_release & memory_order_acquire
 
 ## 1. memory_order_release保证写不后

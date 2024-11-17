@@ -1,3 +1,6 @@
+---
+create: 2024-09-04
+---
 # inline命名空间（版本迭代）
 
 ## 1. quick start

@@ -1,3 +1,6 @@
+---
+create: 2023-11-22
+---
 # 04 Mysql使用案例（C API）
 
 以上API对应的`MySQL`动态库：

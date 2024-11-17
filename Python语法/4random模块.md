@@ -1,3 +1,6 @@
+---
+create: 2023-07-08
+---
 ## random模块
 
 ```python

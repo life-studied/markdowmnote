@@ -1,3 +1,6 @@
+---
+create: 2024-08-29
+---
 # 枚举enum
 
 ## 1. quick start

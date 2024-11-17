@@ -1,3 +1,6 @@
+---
+create: 2023-07-27
+---
 # 08 func and err
 
 ​	下面演示了func和err的基本用法。

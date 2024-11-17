@@ -1,3 +1,6 @@
+---
+create: 2024-02-02
+---
 # 浅析StaticClass的实现
 
 ​	每一个继承自UObject的类，都可以通过`xxx::StaticClass()`获取到该类的UClass对象。本文主要研究该函数在何处定义以及实现方式。

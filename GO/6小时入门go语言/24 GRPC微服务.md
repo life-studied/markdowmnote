@@ -1,3 +1,6 @@
+---
+create: 2023-08-08
+---
 # 24 GRPC微服务
 
 ​	IDL（Interface description Language）文件：通过一种中立的方式来描述接口，使得在不同平台上的不同的对象和不同语言编写的程序可以互相通信。

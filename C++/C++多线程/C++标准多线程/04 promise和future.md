@@ -1,3 +1,6 @@
+---
+create: 2023-07-13
+---
 ## 04 promise和future
 
 [TOC]

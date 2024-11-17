@@ -1,3 +1,6 @@
+---
+create: 2023-12-31
+---
 # StaticClass和GetClass
 
 > `StaticClass`是类的静态方法，同时还有一个同名的成员方法。`GetClass`是一个成员方法。

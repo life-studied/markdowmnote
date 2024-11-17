@@ -1,3 +1,6 @@
+---
+create: 2024-03-12
+---
 # MSVC 多线程编译
 
 ​	将如下命令添加入`CMakeLists.txt`：

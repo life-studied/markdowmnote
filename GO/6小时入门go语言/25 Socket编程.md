@@ -1,3 +1,6 @@
+---
+create: 2023-08-22
+---
 # Socket编程
 
 ​	go语言的Socket编程更简单，服务器用`Listen`函数监听端口，客户端用`Dial`函数连接端口，双方都用`Read`和`Write`来通信。

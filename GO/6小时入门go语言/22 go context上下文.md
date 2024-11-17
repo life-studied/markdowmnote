@@ -1,3 +1,6 @@
+---
+create: 2023-08-02
+---
 # 22 go context上下文
 
 ​	在 Goroutine 构成的树形结构中对信号进行同步以减少计算资源的浪费是`context.Context` 的最大作用。Go 服务的每一个请求都是通过单独的 Goroutine 处理的[2](https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-context/#fn:2)，HTTP/RPC 请求的处理器会启动新的 Goroutine 访问数据库和其他服务。

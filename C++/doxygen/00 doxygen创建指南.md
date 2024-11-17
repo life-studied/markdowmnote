@@ -1,3 +1,6 @@
+---
+create: 2024-03-13
+---
 # doxygen创建指南
 
 ## 创建docs目录并初始化doxygen

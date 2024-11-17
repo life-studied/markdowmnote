@@ -1,3 +1,6 @@
+---
+create: 2023-12-18
+---
 # TArray 栈操作
 
 ## Push & Pop

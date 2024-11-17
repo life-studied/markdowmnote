@@ -1,3 +1,6 @@
+---
+create: 2024-04-24
+---
 # README
 
 ​	The Guidelines Support Library (GSL) contains functions and types that are suggested for use by the [C++ Core Guidelines](https://github.com/isocpp/CppCoreGuidelines) maintained by the [Standard C++ Foundation](https://isocpp.org/).

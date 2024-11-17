@@ -1,3 +1,6 @@
+---
+create: 2024-11-07
+---
 # 清单模式vcpkg.json
 
 ```cmake

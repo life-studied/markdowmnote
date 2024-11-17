@@ -1,3 +1,6 @@
+---
+create: 2023-12-03
+---
 # 图片：load image
 
 ​	基于OpenGL3。基于`stb_image.h`头文件。

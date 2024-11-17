@@ -1,3 +1,6 @@
+---
+create: 2024-01-01
+---
 # TSubOfClass
 
 ## UPROPERTY 安全性

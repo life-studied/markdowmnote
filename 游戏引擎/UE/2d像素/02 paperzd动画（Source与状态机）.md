@@ -1,3 +1,6 @@
+---
+create: 2024-03-23
+---
 # paperzd动画（Source与状态机）.md
 
 [TOC]

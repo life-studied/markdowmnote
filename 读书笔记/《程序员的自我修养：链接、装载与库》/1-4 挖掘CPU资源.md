@@ -1,3 +1,6 @@
+---
+create: 2024-09-15
+---
 # 挖掘CPU资源
 
 ## 多道程序（multiprogramming）

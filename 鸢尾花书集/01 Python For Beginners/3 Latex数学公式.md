@@ -1,3 +1,6 @@
+---
+create: 2024-07-08
+---
 # 3 Latex数学公式
 
 英文中常用字母样式主要有：正体 aA (regular)、粗体 Aa (bold)、斜体 Aa (italic)、粗体斜体 Aa (bold italic)、无衬线体 (sans-serif)、衬线体 (serif)、花体 (calligraphy)、上标 Aa (superscript)、下标 Aa (subscript)。

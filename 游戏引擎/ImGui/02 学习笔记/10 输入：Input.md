@@ -1,3 +1,6 @@
+---
+create: 2023-11-30
+---
 # 10 输入：Input
 
 ## Key Input

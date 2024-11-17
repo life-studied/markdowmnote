@@ -1,3 +1,6 @@
+---
+create: 2023-07-24
+---
 # 02 easy example(math)
 
 [TOC]

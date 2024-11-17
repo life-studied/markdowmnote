@@ -1,3 +1,6 @@
+---
+create: 2023-12-30
+---
 # Camera Actor
 
 ## 1. View Target 根据摄像机视角移动

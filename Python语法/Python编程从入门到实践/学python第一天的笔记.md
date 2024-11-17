@@ -1,3 +1,6 @@
+---
+create: 2023-07-08
+---
 ## 学python第一天的笔记
 
 #### 1.hello python

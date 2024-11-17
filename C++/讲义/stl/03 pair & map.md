@@ -1,3 +1,6 @@
+---
+create: 2024-07-12
+---
 # pair & map
 
 [TOC]

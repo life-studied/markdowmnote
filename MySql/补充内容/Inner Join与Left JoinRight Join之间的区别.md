@@ -1,3 +1,6 @@
+---
+create: 2024-11-01
+---
 # Inner Join与Left Join/Right Join之间的区别
 
 一直没搞懂这三者之间的区别，用的时候只知道用left join。这两天突然想到，查了一下，发现虽然都是取笛卡尔积，但是只有inner join是才是真正的交集。

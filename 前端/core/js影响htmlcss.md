@@ -1,3 +1,6 @@
+---
+create: 2024-11-06
+---
 # js影响html/css
 
 `getElementById()` 是多个 JavaScript HTML 方法之一。

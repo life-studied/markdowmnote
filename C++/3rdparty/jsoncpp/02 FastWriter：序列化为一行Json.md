@@ -1,3 +1,6 @@
+---
+create: 2023-11-29
+---
 # FastWriter：序列化为一行Json
 
 ```C++

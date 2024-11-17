@@ -1,3 +1,6 @@
+---
+create: 2024-03-12
+---
 # find_package() usage
 
 [TOC]

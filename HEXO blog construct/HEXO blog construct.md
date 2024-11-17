@@ -1,3 +1,6 @@
+---
+create: 2023-07-08
+---
 ## HEXO blog construct
 
 #### 1. 前置工作

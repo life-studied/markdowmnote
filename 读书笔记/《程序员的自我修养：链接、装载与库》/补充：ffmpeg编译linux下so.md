@@ -1,3 +1,6 @@
+---
+create: 2024-11-12
+---
 # ffmpeg编译linux下so
 
 使用`gcc -shared`会主动调用ld，并且传入系统共享库路径。而如果手动调用ld则需要手动添加路径-Lxxx。

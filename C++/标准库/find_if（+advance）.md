@@ -1,3 +1,6 @@
+---
+create: 2023-11-27
+---
 # find_if（+advance）
 
 ​	可以配合`lambda`表达式和`std::advance`使用。

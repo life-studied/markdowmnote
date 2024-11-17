@@ -1,3 +1,6 @@
+---
+create: 2024-09-16
+---
 # memory_order_seq_cst
 
 `std::memory_order_seq_cst`表示最强约束。

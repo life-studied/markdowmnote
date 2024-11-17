@@ -1,3 +1,6 @@
+---
+create: 2023-08-01
+---
 # axmol安装
 
 [【Axmol】基于Cocos2d-x 4.0的持续维护的游戏引擎介绍 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/168732477)

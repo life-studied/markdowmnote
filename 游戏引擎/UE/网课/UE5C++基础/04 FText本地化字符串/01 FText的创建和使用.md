@@ -1,3 +1,6 @@
+---
+create: 2023-12-15
+---
 # 01 FText的创建和使用
 
 ​	定义FText之前，要指定`LOCTEXT_NAMESPACE`宏，使用完取消宏。

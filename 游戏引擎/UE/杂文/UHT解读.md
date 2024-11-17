@@ -1,3 +1,6 @@
+---
+create: 2024-01-30
+---
 # UHT解读
 
 ​	一般UBT会收集头文件中的信息，并传递给UHT，来生成对应的`classname.generated.h`。一般生成的地址不在和源代码同级，而是在`Intermediate\Build\Win64\UnrealEditor\Inc\MODULE_NAME\UHT`下。
