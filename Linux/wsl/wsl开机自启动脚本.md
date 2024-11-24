@@ -1,6 +1,8 @@
 ---
 create: 2024-11-02
+modified: '2024-11-17'
 ---
+
 # wsl开机自启动脚本
 
 ## windows开机启动wsl
@@ -36,4 +38,3 @@ sudo chmod 777 test.sh
 ```shell
 sudo update-rc.d test.sh defaults
 ```
-
