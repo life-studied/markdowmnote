@@ -1,6 +1,6 @@
 ---
 create: '2024-12-06'
-modified: '2024-12-06'
+modified: '2024-12-07'
 ---
 
 # std::variant和std::visit
@@ -40,6 +40,12 @@ int main()
     {
         std::cout << ex.what() << '\n';
     }
+    
+    auto result = std::get_if<float>(w);	// nullptr if error
+    if(result)
+    {
+        std::cout << *result;
+    }
 }
 ```
 
@@ -68,7 +74,7 @@ int main() {
 
 同时对于特定类型的特殊处理，也可以使用类型萃取来特殊处理：
 
-#### std::is_same_v
+#### std::is_same_v和if constexpr
 
 使用标准库提供的类型萃取工具`std::is_same_v`：
 
@@ -92,6 +98,38 @@ int main() {
 }
 ```
 
+#### std::is_same_v与std::true_type
+
+如果标准低于C++17，可以使用std::true_type来实现类似的效果：
+
+```C++
+#include <iostream>
+#include <variant>
+#include <string>
+#include <type_traits>
+
+template <typename T>
+void process(T&& arg, std::true_type)
+{
+    std::cout << "str: " << arg << std::endl; 
+}
+
+template <typename T>
+void process(T && arg, std::false_type)
+{
+    std::cout << "The value is: " << arg << std::endl;
+}
+
+int main() {
+    std::variant<int, double, std::string> myVariant = "Hello, world!";
+    std::visit([](auto&& arg) {
+        process(std::forward<decltype(arg)>(arg), std::is_same<decltype(arg), std::string>());
+     }, myVariant);
+
+    return 0;
+}
+```
+
 #### 模板匹配
 
 或者自己构造模板匹配来实现相同的类型萃取效果：
@@ -103,7 +141,7 @@ int main() {
 #include <type_traits>
 
 template <typename T>
-void process(T& arg)
+void process(T&& arg)
 {
 	std::cout << "The value is: " << arg << std::endl;
 }
