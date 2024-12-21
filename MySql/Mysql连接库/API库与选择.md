@@ -1,6 +1,8 @@
 ---
 create: 2024-11-13
+modified: '2024-12-21'
 ---
+
 # API库 | 选择
 
 ## API库
@@ -17,7 +19,13 @@ MySQL官方提供了很多种连接的方式：
 
 ### 2. MySQL C API
 - **概述**：MySQL C API 提供对 MySQL 客户端/服务器协议的低级访问，并使 C 程序能够访问数据库内容。C API 代码随 MySQL 一起分发。例如在`mysql-8.1.0-winx64`下的`include`中。
-- **API说明**：这种API是C类型的较为底层的API。能实现非常精确的控制，但是使用起来比较低级。详细可以看**Mysql连接池**一文。
+- [MySQL :: Download C API (libmysqlclient)](https://dev.mysql.com/downloads/c-api/)提供了官方对C API的说明页（如下图）。
+
+<img src="./assets/image-20241221121010027.png" alt="image-20241221121010027" style="zoom:50%;" />
+
+- **API说明**：
+  - 这种API是C类型的较为底层的API。能实现非常精确的控制，但是使用起来比较低级。详细可以看**Mysql连接池**一文。
+  - 官方提供的C API的接口说明在[MySQL::MySQL 8.0 C API 开发指南](https://dev.mysql.com/doc/c-api/8.0/en/)
 
 ## 选择API库
 
