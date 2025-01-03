@@ -17,7 +17,25 @@ MSVC会将exe生成在/bin/Debug下。这会导致某些时候exe目录与希望
 
 ## 解决方法
 
-经过考虑，最好的方法其实是不动MSVC的规则，让需要拷贝的文件去符合它的目录规则。
+### 破坏MSVC的规则
+
+通过下面的方法就能解决MSVC的规则问题：
+
+```cmake
+set(targetname HelloWorld)
+set(target_output_path ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+
+if(MSVC)
+    set_target_properties( ${targetname} PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${target_output_path} )
+    set_target_properties( ${targetname} PROPERTIES LIBRARY_OUTPUT_DIRECTORY_DEBUG ${target_output_path} )
+    set_target_properties( ${targetname} PROPERTIES LIBRARY_OUTPUT_DIRECTORY_RELEASE ${target_output_path} )
+    # etc for the other available configuration types (MinSizeRel, RelWithDebInfo)
+endif(MSVC)
+```
+
+### 遵循MSVC的规则
+
+经过考虑，遵循MSVC的规则是一种可以接受的解决方案，让需要拷贝的文件去符合它的目录规则。
 
 下面是一个示例，子项目中存在一些需要拷贝的文件，会自动拷贝到上级目录设置的`CMAKE_RUNTIME_OUTPUT_DIRECTORY`中。
 
