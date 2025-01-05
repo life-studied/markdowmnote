@@ -43,10 +43,70 @@ void add_list(py::list my_list) {
     // 只可读（通过迭代器）
     for (auto & i : my_list)
         std::cout << i << std::endl;
+    
+    // 其它常用操作
+    
+    // 创建一个指定大小的 py::list
+    py::list my_list_with_size(5);
+
+    // 获取列表的大小
+    size_t size = my_list.size();
+
+    // 检查列表是否为空
+    bool is_empty = my_list.empty();
+    
+    // 向列表末尾添加元素
+    my_list.append(py::int_(10));
+
+    // 在指定位置插入元素
+    my_list.insert(1, py::int_(20));
+
+    // 清空列表
+    my_list.clear();
 }
 ```
 
+## py::dict
 
+```C++
+py::dict dict_example() {
+    // 创建一个空的 py::dict
+    py::dict my_dict;
+
+    // 使用关键字参数创建 py::dict
+    using namespace pybind11::literals;
+    py::dict my_dict_with_args("key1"_a = 1, "key2"_a = 2);
+
+    // 获取字典的大小
+    size_t size = my_dict.size();
+
+    // 检查字典是否为空
+    bool is_empty = my_dict.empty();
+
+    // 迭代字典元素
+    for (auto it = my_dict.begin(); it != my_dict.end(); ++it) {
+        std::cout << "Key: " << it->first.cast<std::string>() << ", Value: " << it->second.cast<int>() << std::endl;
+    }
+
+    // 清空字典
+    my_dict.clear();
+
+    // 检查字典是否包含某个键
+    bool contains_key = my_dict.contains("key1");
+
+    // 向字典添加元素
+    my_dict["key1"] = py::int_(42);
+    my_dict[py::int_(2)] = py::int_(43);
+
+    // 访问字典元素
+    py::object value = my_dict["key1"];
+
+    // 删除字典元素（没有提供删除接口，但是可以通过attr来调用Python中的函数接口）
+    auto discarded_val = my_dict.attr("pop")("key1");
+
+    return my_dict;
+}
+```
 
 ## 附录
 

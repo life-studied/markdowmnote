@@ -5,11 +5,13 @@ modified: '2025-01-05'
 
 # pybind11-stubgen
 
-## example
+## example（Windows-powershell）
 
 ```powershell
 $env:PYTHONPATH = "$env:PYTHONPATH;$pwd"
 pybind11-stubgen -o ./typings --ignore-all-errors example
+
+# pybind11-stubgen -o ./typings example # if no capsule
 ```
 
 ## usage
