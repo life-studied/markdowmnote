@@ -1,6 +1,6 @@
 ---
 create: '2024-12-11'
-modified: '2024-12-17'
+modified: '2025-01-05'
 ---
 
 # pybind11 | install & usage
@@ -33,16 +33,17 @@ print(hw.add(1,2))
 ## 1. 下载pybind11
 
 ```shell
+# 作为项目子模块
 git init .
 git submodule add -b stable git@github.com:pybind/pybind11.git extern/pybind11
 git submodule update --init
 
-# 或者
+# 或者直接clone
 mkdir extern && cd extern
 git clone git@github.com:pybind/pybind11.git
 ```
 
-## 2. 导入pybind
+## 2. 导入pybind11
 
 ```cmake
 cmake_minimum_required(VERSION 3.20)
@@ -56,9 +57,19 @@ set(CMAKE_CXX_EXTENSIONS ON)
 
 project(test)
 
+# 通过add_subdirectory或者find_package导入
 add_subdirectory(extern/pybind11)
 
+# 添加module二进制的target
 pybind11_add_module(example test.cpp)
+
+# 对MSVC的输出目录进行设置，使其与python脚本的目录一致，不必手动迁移pyd
+if(MSVC)
+    set_target_properties( ${targetname} PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${target_output_path} )
+    set_target_properties( ${targetname} PROPERTIES LIBRARY_OUTPUT_DIRECTORY_DEBUG ${target_output_path} )
+    set_target_properties( ${targetname} PROPERTIES LIBRARY_OUTPUT_DIRECTORY_RELEASE ${target_output_path} )
+    # etc for the other available configuration types (MinSizeRel, RelWithDebInfo)
+endif(MSVC)
 ```
 
 ## vcpkg方法（需要额外编译，太慢了）
