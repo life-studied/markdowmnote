@@ -1,6 +1,6 @@
 ---
 create: '2024-12-05'
-modified: '2024-12-05'
+modified: '2025-01-13'
 ---
 
 # std::reduce
