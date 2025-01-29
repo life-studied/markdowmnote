@@ -1,44 +1,32 @@
 ---
 create: '2024-12-05'
-modified: '2024-12-05'
+modified: '2025-01-25'
 ---
 
 # defer
 
-```C++
-#include <iostream>
-#include <algorithm>
+如果要实现自动创建，可以通过编译器扩展，通过函数对defer变量实例进行命名，然后通过宏拓展来创建变量。类似于这样：`DEFER{ func(); };`。其中`DEFER`是一个宏。
 
-template <typename F>
-struct defer {
-	defer(F f) : _f(f) {}
-	~defer() { _f(); }
-	F _f;
+```C++
+template <class F>
+class DeferClass {
+public:
+    DeferClass(F&& f) : m_func(std::forward<F>(f)) {}
+    DeferClass(const F& f) : m_func(f) {}
+    ~DeferClass() {
+        m_func();
+    }
+
+    DeferClass(const DeferClass& e) = delete;
+    DeferClass& operator=(const DeferClass& e) = delete;
+
+private:
+    F m_func;
 };
 
-template <typename F>
-auto wrap(F f) {
-	return [f](auto... args) {
-		auto pre = []() { std::cout << "start" << std::endl; };
-		auto post = []() { std::cout << "end" << std::endl; };
+#define _CONCAT(a, b) a##b
+#define _MAKE_DEFER_(line) DeferClass _CONCAT(defer_placeholder, line) = [&]()
 
-		pre();
-
-		defer defer_post(post);
-
-		return f(std::forward<decltype(args)>(args)...);
-		};
-}
-
-void test(int i)
-{
-	std::cout << i << std::endl;
-}
-
-int main()
-{
-	auto newtest = wrap(test);
-	newtest(1);
-	return 0;
-}
+#undef DEFER
+#define DEFER _MAKE_DEFER_(__LINE__)
 ```
