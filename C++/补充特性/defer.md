@@ -1,6 +1,6 @@
 ---
 create: '2024-12-05'
-modified: '2025-01-25'
+modified: '2025-02-22'
 ---
 
 # defer
@@ -24,8 +24,8 @@ private:
     F m_func;
 };
 
-#define _CONCAT(a, b) a##b
-#define _MAKE_DEFER_(line) DeferClass _CONCAT(defer_placeholder, line) = [&]()
+#define _DEFER_CONCAT(a, b) a##b
+#define _MAKE_DEFER_(line) DeferClass _DEFER_CONCAT(defer_placeholder, line) = [&]()
 
 #undef DEFER
 #define DEFER _MAKE_DEFER_(__LINE__)
