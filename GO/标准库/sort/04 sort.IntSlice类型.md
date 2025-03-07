@@ -7,6 +7,28 @@ modified: '2025-02-26'
 
 `sort`包原生支持`[]int`、`[]float64`和`[]string`三种内建数据类型切片的排序操作，即不必我们自己实现相关的`Len()`、`Less()`和`Swap()`方法。
 
+## quick to start
+
+```go
+package main
+
+import (
+	"fmt"
+	"sort"
+)
+
+func main() {
+	data := []int{3, 1, 4, 1, 5, 9, 2, 6, 5, 3}
+	if sort.IntsAreSorted(data) {
+		sort.Ints(data)
+	}
+
+	idx := sort.SearchInts(data, 5)
+	fmt.Println(data[idx]) // 5
+}
+
+```
+
 ## IntSlice类型与[]int类型
 
 `sort`包定义了一个`IntSlice`类型，并且实现了`sort.Interface`接口：
