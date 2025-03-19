@@ -1,6 +1,6 @@
 ---
 create: '2025-03-15'
-modified: '2025-03-15'
+modified: '2025-03-17'
 ---
 
 # 抛出异常（throw）
@@ -33,6 +33,6 @@ call __CxxRTThrowExp(&iExp);
 
 `__CxxRTThrowExp` 首先接收（并保存）EXCEPTION 对象；然后从 `TLS：Current ExpHdl` 处找到与当前函数对应的 `piHandler`、`nStep` 等异常处理相关数据；并按照前文所述的机制完成异常捕获和栈回退。由此完成了包括“抛出”->“捕获”->“回退”等步骤的整套异常处理机制。
 
-最后再附上zheng'ge
+最后再附上整个调用过程图：
 
 ![image-20250315144244578](./assets/image-20250315144244578.png)
