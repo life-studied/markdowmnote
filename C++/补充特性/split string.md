@@ -1,6 +1,8 @@
 ---
 create: 2023-11-30
+modified: '2025-03-30'
 ---
+
 # split string
 
 ## 1. 无法识别相邻分割字符（传入型）
@@ -53,6 +55,23 @@ std::vector<std::string> split(const std::string& s, const std::string& delimite
 }
 ```
 
+## C++20 range split
+
+```C++
+#include <ranges>
+
+int main() {
+	std::string str("123 321 1234567");
+
+	auto split_res = str | std::views::split(' ');
+	for (const auto& subrange_v : split_res) {
+		for (auto& data : subrange_v)
+			std::cout << data;
+		std::cout << "\n-----------" << std::endl;
+	}
+}
+```
+
 # split from
 
 ```C++
@@ -85,4 +104,3 @@ std::vector<std::string> split_from(const std::string& str, const std::vector<st
     return final_results;
 }
 ```
-

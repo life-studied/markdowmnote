@@ -1,6 +1,6 @@
 ---
 create: '2024-12-11'
-modified: '2025-01-05'
+modified: '2025-03-30'
 ---
 
 # pybind11 | install & usage
@@ -30,7 +30,7 @@ print(hw.add(1,2))
 
 ## submodule方法（推荐）
 
-## 1. 下载pybind11
+### 1. 下载pybind11
 
 ```shell
 # 作为项目子模块
@@ -43,7 +43,7 @@ mkdir extern && cd extern
 git clone git@github.com:pybind/pybind11.git
 ```
 
-## 2. 导入pybind11
+### 2. 导入pybind11
 
 ```cmake
 cmake_minimum_required(VERSION 3.20)
@@ -72,9 +72,17 @@ if(MSVC)
 endif(MSVC)
 ```
 
+### 3. cpp生成的pyd链接第三方库
+
+直接使用 `target_link_libraries` 链接该动态库就可以了。
+
+```cmake
+target_link_libraries(example PUBLIC xxx)	# example 链接 第三方库
+```
+
 ## vcpkg方法（需要额外编译，太慢了）
 
-## 1. vcpkg.json
+### 1. vcpkg.json
 
 ```
 {
@@ -84,7 +92,7 @@ endif(MSVC)
   }
 ```
 
-## 2. cmake
+### 2. cmake
 
 ```cmake
 cmake_minimum_required(VERSION 3.20)
