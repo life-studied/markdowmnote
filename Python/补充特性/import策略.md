@@ -1,11 +1,11 @@
 ---
 create: 2023-07-08
-modified: '2024-11-17'
+modified: '2025-04-02'
 ---
 
 # import策略
 
-> package代码使用相对导入，入口代码使用绝对导入。
+> package中的代码使用相对导入，入口代码使用绝对导入。
 
 ## 核心 sys.path
 
@@ -17,18 +17,33 @@ modified: '2024-11-17'
 
 ### 入口路径
 
+```
+.
+├── pkg
+│   └── subPkg1
+│       ├── moduleA.py
+│       └── moduleB.py
+└── start.py
+```
+
 问题：下面的代码如果执行，则找不到moduleB，即使moduleA和moduleB在同一个路径下。
 
-> 原因正是sys.path并不包含moduleA的路径，而是只有入口路径start.py
+> 原因正是sys.path并不包含moduleA的路径，而是只有入口start.py所在的路径：
+> `'d:\\codeSpace\\bad_code\\test_module'`
 
 ```python
 # /start.py
 from pkg.subPkg1 import moduleA
 
-# /pkg/subPkg1/moduleA
+# /pkg/subPkg1/moduleA.py
 import moduleB
 
-# sys.path:['d:\\codeSpace\\bad_code\\t_py', 'D:\\ProgrammingSoftware\\Python3\\python311.zip', 'D:\\ProgrammingSoftware\\Python3\\DLLs', 'D:\\ProgrammingSoftware\\Python3\\Lib', 'D:\\ProgrammingSoftware\\Python3', 'C:\\Users\\10654\\AppData\\Roaming\\Python\\Python311\\site-packages', 'D:\\ProgrammingSoftware\\Python3\\Lib\\site-packages', 'D:\\ProgrammingSoftware\\Python3\\Lib\\site-packages\\win32', 'D:\\ProgrammingSoftware\\Python3\\Lib\\site-packages\\win32\\lib', 'D:\\ProgrammingSoftware\\Python3\\Lib\\site-packages\\Pythonwin']
+# Traceback (most recent call last):
+#   File "d:\codeSpace\bad_code\test_module\start.py", line 1, in <module>
+#     from pkg.subPkg1 import moduleA
+#   File "d:\codeSpace\bad_code\test_module\pkg\subPkg1\moduleA.py", line 1, in <module>
+#     import moduleB
+# ModuleNotFoundError: No module named 'moduleB'
 ```
 
 ## 相对导入
@@ -45,7 +60,9 @@ import moduleB
 
 使用相对导入可以避开`sys.path`中入口路径不固定的问题。
 
-即不管从哪个文件进入，都会从本module的`__package__`中去寻找。
+即不管从哪个文件进入，都不会再去看`sys.path`中的路径。
+
+而是会从当前module的`__package__`的拿到当前的绝对路径，再去根据相对路径去寻找。
 
 语法：`from 相对路径 import module`
 
@@ -64,9 +81,11 @@ print(f"moduleA.__package__={__package__}")
 print("This is moduleX")
 ```
 
-注意：入口文件的`__package__`会被设置为`None`，`__name__`会被设置为`__main__`。
+## 库文件不能直接运行
 
-也就是说，库文件如果直接运行，则可能因为相对导入的方式，没有自己的`__package__`，进而无法导入其它module。
+其它注意：由于入口文件的`__package__`会被设置为`None`，`__name__`会被设置为`__main__`。
+
+也就是说，库文件作为入口文件，如果直接运行，则可能因为相对导入的方式，没有自己的`__package__`，进而无法导入其它module。
 正确的方法是在外面新建一个start来启动。
 
 ## 参考资料
