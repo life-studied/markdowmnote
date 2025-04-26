@@ -1,6 +1,6 @@
 ---
 create: '2024-12-11'
-modified: '2025-03-30'
+modified: '2025-04-25'
 ---
 
 # pybind11 | install & usage
@@ -78,6 +78,17 @@ endif(MSVC)
 
 ```cmake
 target_link_libraries(example PUBLIC xxx)	# example 链接 第三方库
+```
+
+### 4. python查找生成的so的路径
+
+上文通过修改target的生成路径，从而让python能正确找到`pyd/so`文件。实际上python的import方式在其它笔记里有专门的严谨说明，此处仅给出一个方案来解决想要自定义路径的方式：
+
+```python
+import os
+import sys
+# 增加查找的pyd路径：./output/Release/
+sys.path.append(os.getcwd() + '\\output\\Release')
 ```
 
 ## vcpkg方法（需要额外编译，太慢了）

@@ -1,6 +1,8 @@
 ---
 create: 2024-03-24
+modified: '2024-11-17'
 ---
+
 # git branch
 
 ​	branch可以理解为一个另一个对象，其存储在`.git/refs/heads/`下，一个文件就是一个分支对象。

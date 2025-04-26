@@ -1,6 +1,8 @@
 ---
 create: 2024-04-24
+modified: '2024-11-17'
 ---
+
 # 启用Action
 
 ​	Github-Actions的启动依赖于本仓库下的特定文件：`.github/workflows/xxx.yml`
@@ -139,4 +141,3 @@ runs-on: ubuntu-18.04
 
 * [GitHub Actions 的工作流语法 - GitHub 文档](https://docs.github.com/zh/actions/using-workflows/workflow-syntax-for-github-actions)
 * [GitHub Actions 入门教程 - 阮一峰的网络日志 (ruanyifeng.com)](https://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
-
