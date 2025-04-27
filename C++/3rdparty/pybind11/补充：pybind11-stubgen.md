@@ -1,6 +1,6 @@
 ---
 create: '2025-01-05'
-modified: '2025-01-05'
+modified: '2025-04-26'
 ---
 
 # pybind11-stubgen
@@ -8,7 +8,9 @@ modified: '2025-01-05'
 ## example（Windows-powershell）
 
 ```powershell
-$env:PYTHONPATH = "$env:PYTHONPATH;$pwd"
+$env:PYTHONPATH = "$env:PYTHONPATH;$pwd"	# 将.pyd/.so的生成目录加入到PYTHONPATH中
+											# pybind11-stubgen才能查找到对应的module
+											# 此处是$pwd，更换成你自己的目录
 pybind11-stubgen -o ./typings --ignore-all-errors example
 
 # pybind11-stubgen -o ./typings example # if no capsule
