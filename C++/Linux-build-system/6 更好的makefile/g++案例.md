@@ -72,7 +72,7 @@ g++ .\source\main.cpp -lmath -Llib -I .\include\ -o .\output\main.exe
 
 ![](../Linux相关/picture/最终结果.png)
 
-**使用makefile改进编写**
+## **使用makefile改进编写**
 
 > 由于某种问题（后面已经解决，详见二和四），make找不到source下的文件，只能将源文件移动到根目录下
 
@@ -98,7 +98,7 @@ clean:			#注意：make.exe调用的不是powershell,而是cmd,因此要用del�
 
 ![](../Linux相关/picture/最终结果2.png)
 
-**将makefile优化（一）**
+### **将makefile优化（一）**
 
 > 与上图一致，只是将部分路径使用变量表示，并且加入了O2优化指令
 >
@@ -127,7 +127,7 @@ clean:			#注意：make.exe调用的不是powershell,而是cmd,因此要用del�
 	del .\lib\*.a
 ```
 
-##### 将makefile优化（二）
+### 将makefile优化（二）
 
 > 解决了寻找source目录的问题，但是没有静态库。得出的结论是
 >
@@ -162,7 +162,7 @@ clean:
 
 ![](../Linux相关/picture/最终结果3.png)
 
-**将makefile优化（三）**
+### **将makefile优化（三）**
 
 > 使用静态库lib来封装.o文件
 
@@ -197,7 +197,7 @@ clean:
 
 ![](../Linux相关/picture/最终结果4.png)
 
-**将makefile优化（四）**
+### **将makefile优化（四）**
 
 ![](../Linux相关/picture/VPATH.png)
 
@@ -234,7 +234,7 @@ clean:
 	del .\lib\*.a
 ```
 
-**将makefile优化（五）**
+### **将makefile优化（五）**
 
 > 使用静态模式直接生成所有.o文件
 >
@@ -269,7 +269,7 @@ clean:
 	del .\lib\*.a
 ```
 
-**将makefile优化（六）**
+### **将makefile优化（六）**
 
 > 主要优化了clean的各种模式，便于选择性清理。
 
@@ -305,7 +305,7 @@ cleanapp:
 	del $(OUTPUTPATN)\$(EXE)
 ```
 
-**将makefile优化（七）**
+### **将makefile优化（七）**
 
 > 根据不同的操作系统启动不同的代码。
 >
@@ -386,7 +386,7 @@ endif
 endif
 ```
 
-**将makefile优化（八）**
+### **将makefile优化（八）**
 
 > 对于问题七，可以使用两个程序，根据操作系统，来切换makefile里的路径表示符
 >
@@ -535,7 +535,7 @@ endif
 endif
 ```
 
-**将makefile优化（九）**
+### **将makefile优化（九）**
 
 > 使用C++替换字符会因为makefile检查文件目录，不能将mk文件放到子目录下。所以使用python脚本代替C++程序，替换字符。
 
