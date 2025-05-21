@@ -1,6 +1,6 @@
 ---
 create: '2025-03-28'
-modified: '2025-03-28'
+modified: '2025-05-20'
 ---
 
 # libiconv封装
@@ -64,7 +64,7 @@ namespace iconv_space {
 		UTF_32, UTF_32BE, UTF_32LE
 	};
 
-	std::string Convert(std::string_view str_in, const char* from_code, const char* to_code) 
+	std::string Convert(std::string_view str_in, const char* from_code, const char* to_code)
 		throw(iconv_invalid_code, iconv_memory_lack, iconv_bad_input_str, iconv_unknown_exception) {
 
 		iconv_t conv_device = iconv_open(to_code, from_code);
@@ -82,7 +82,7 @@ namespace iconv_space {
 		// 每次转换若干个字符的输出缓冲区
 		constexpr int buffer_size = 20;
 		char out_buffer[buffer_size] = {};
-		
+
 		char* in_buffer = const_cast<char*>(str_in.data());
 		size_t in_buffer_left = str_in.length();
 
@@ -91,7 +91,7 @@ namespace iconv_space {
 			// 每次刷新输出缓冲区，并转换若干个字符进缓冲区
 			char* out_buffer_ptr = out_buffer;
 			size_t out_buffer_left = buffer_size;
-			
+
 			auto res = iconv(conv_device, &in_buffer, &in_buffer_left, &out_buffer_ptr, &out_buffer_left);
 
 			constexpr size_t bad_result = static_cast<size_t>(-1);
@@ -101,7 +101,7 @@ namespace iconv_space {
 
 			ss.write(out_buffer, buffer_size - out_buffer_left);
 		}
-		
+
 		return ss.str();
 	}
 
@@ -194,22 +194,28 @@ namespace iconv_space {
 
 } // iconv_space
 
-extern const char* gbk_str;
-
+#include <fstream>
+#include <string>
 int main()
 {
 	using namespace iconv_space;
 	system("chcp 65001>nul");
+
+	std::ifstream ifs("test.txt");
+	std::string str;
+	std::getline(ifs, str);
+	std::cout << str << std::endl;	// 乱码输出
+
 	try
 	{
-		auto result = Convert(gbk_str, iconv_encode::GB2312, iconv_encode::UTF_8);
-		std::cout << result << std::endl;
+		auto result = Convert(str, iconv_encode::GB2312, iconv_encode::UTF_8);
+		std::cout << result << std::endl;	// 正确输出
 	}
 	catch (std::exception& e)
 	{
 		std::cout << e.what();
 	}
-	
+
 	return 0;
 }
 ```
