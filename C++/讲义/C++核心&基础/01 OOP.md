@@ -1,6 +1,6 @@
 ---
 create: '2025-05-20'
-modified: '2025-05-20'
+modified: '2025-05-23'
 ---
 
 # OOP
@@ -390,7 +390,7 @@ A a4 = a3;	// 拷贝构造函数？赋值运算符？
 class video {
     ...
 private:
-    char* data[1024*1024];	// 1M
+    char* data;	// 1G	1024*1024*1024	8
 }
 ```
 
