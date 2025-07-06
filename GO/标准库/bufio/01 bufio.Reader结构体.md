@@ -1,6 +1,6 @@
 ---
 create: '2025-02-25'
-modified: '2025-02-25'
+modified: '2025-07-06'
 ---
 
 # bufio.Reader结构体
@@ -9,7 +9,7 @@ bufio.Reader 结构包装了一个 io.Reader 对象，提供缓存功能，同�
 
 Reader 结构没有任何导出的字段，结构定义如下：
 
-```
+```go
 type Reader struct {
     buf          []byte        // 缓存
     rd           io.Reader    // 底层的io.Reader
@@ -145,7 +145,7 @@ func (b *Reader) ReadLine() (line []byte, isPrefix bool, err error)
 
 `ReadLine`它现在的实现，用不好会出现意想不到的问题，比如丢数据。个人建议可以这么实现读取一行：
 
-```
+```go
 line, err := reader.ReadBytes('\n')
 line = bytes.TrimRight(line, "\r\n")
 ```
@@ -168,7 +168,7 @@ Reader的其他方法都是实现了io包中的接口，它们的使用方法在
 
 这些方法包括：
 
-```
+```go
 func (b *Reader) Read(p []byte) (n int, err error)
 func (b *Reader) ReadByte() (c byte, err error)
 func (b *Reader) ReadRune() (r rune, size int, err error)
