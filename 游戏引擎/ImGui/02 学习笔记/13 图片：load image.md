@@ -1,17 +1,19 @@
 ---
 create: 2023-12-03
+modified: '2025-07-15'
 ---
+
 # 图片：load image
 
-​	基于OpenGL3。基于`stb_image.h`头文件。
+Imgui导入图片主要分为3步：
 
-​	原文`Github`链接：[图像加载和显示示例 ·ocornut/imgui 维基 (github.com)](https://github.com/ocornut/imgui/wiki/Image-Loading-and-Displaying-Examples)
+1. 将图片文件导入到内存里的RGBA数组（imgui推荐使用stb_image库）
+2. 将RGBA数组通过图形API，上传给GPU，变成纹理
+3. Imgui通过纹理ID，将GPU中的图片显示到屏幕上
 
-## 1. 思路说明
+> 原文`Github`链接：[图像加载和显示示例 ·ocornut/imgui 维基 (github.com)](https://github.com/ocornut/imgui/wiki/Image-Loading-and-Displaying-Examples)
 
-​	在ImGui中，导入图片的做法是先使用图形API，从硬盘中将图片导入到纹理（`Texture`），再把Texture导入到Image中。
-
-## 2. 导入图片到纹理（封装函数）
+## 1. 导入图片到纹理（封装函数）
 
 ```C++
 #pragma once
@@ -53,7 +55,7 @@ bool LoadTextureFromFile(const char* filename, GLuint* out_texture, int* out_wid
 }
 ```
 
-## 3. 使用函数
+## 2. 使用函数
 
 ```C++
 #include "imgui.h"
@@ -74,4 +76,3 @@ int test()
 	}
 }
 ```
-
