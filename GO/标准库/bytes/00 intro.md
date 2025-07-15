@@ -5,7 +5,7 @@ modified: '2025-07-08'
 
 # bytes包
 
-bytes包的功能和strings基本一致，只是作用对象从`string`变成了`[]byte`。由于[]byte没有string的内置运算符重载，因此多了一些需要记忆的函数。
+bytes包的功能和strings基本一致，只是作用对象从`string`变成了`[]byte`。由于[]byte没有string的内置运算符重载，因此多了一些需要记忆的函数。但是依然可以通过切片[:]取子串。
 
 1. 字符串基本功能：
 
