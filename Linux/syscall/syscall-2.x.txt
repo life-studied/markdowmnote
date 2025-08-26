@@ -1,0 +1,306 @@
+       _newselect(2)               2.0
+       _sysctl(2)                  2.0           Removed in 5.5
+       accept(2)                   2.0           See notes on socketcall(2)
+       bind(2)                     2.0           See notes on socketcall(2)
+       connect(2)                  2.0           See notes on socketcall(2)
+       execv(2)                    2.0           SPARC/SPARC64  only, for com‐
+       fdatasync(2)                2.0
+       flock(2)                    2.0
+       getdents(2)                 2.0
+       getdtablesize(2)            2.0           SPARC  (removed  in  2.6.26),
+       gethostname(2)              2.0           Alpha, was available on SPARC
+       getpeername(2)              2.0           See notes on socketcall(2)
+       getpagesize(2)              2.0           Not on x86
+       getsid(2)                   2.0
+       getsockname(2)              2.0           See notes on socketcall(2)
+       getsockopt(2)               2.0           See notes on socketcall(2)
+       getxgid(2)                  2.0           Alpha only; see NOTES
+       getxpid(2)                  2.0           Alpha only; see NOTES
+       getxuid(2)                  2.0           Alpha only; see NOTES
+       listen(2)                   2.0           See notes on socketcall(2)
+       mlock(2)                    2.0
+       mlockall(2)                 2.0
+       mremap(2)                   2.0
+       msgctl(2)                   2.0           See notes on ipc(2)
+       msgget(2)                   2.0           See notes on ipc(2)
+       msgrcv(2)                   2.0           See notes on ipc(2)
+       msgsnd(2)                   2.0           See notes on ipc(2)
+       msync(2)                    2.0
+       munlock(2)                  2.0
+       munlockall(2)               2.0
+       nanosleep(2)                2.0
+       old_adjtimex(2)             2.0           Alpha only; see NOTES
+       pciconfig_read(2)           2.0.26; 2.2   Not on x86
+       pciconfig_write(2)          2.0.26; 2.2   Not on x86
+       poll(2)                     2.0.36; 2.2
+       readv(2)                    2.0
+       recv(2)                     2.0           See notes on socketcall(2)
+       recvfrom(2)                 2.0           See notes on socketcall(2)
+       recvmsg(2)                  2.0           See notes on socketcall(2)
+       sched_get_priority_max(2)   2.0
+       sched_get_priority_min(2)   2.0
+       sched_getparam(2)           2.0
+       sched_getscheduler(2)       2.0
+       sched_rr_get_interval(2)    2.0
+       sched_setparam(2)           2.0
+       sched_setscheduler(2)       2.0
+       sched_yield(2)              2.0
+       semctl(2)                   2.0           See notes on ipc(2)
+       semget(2)                   2.0           See notes on ipc(2)
+       semop(2)                    2.0           See notes on ipc(2)
+       send(2)                     2.0           See notes on socketcall(2)
+       sendmsg(2)                  2.0           See notes on socketcall(2)
+       sendto(2)                   2.0           See notes on socketcall(2)
+       sethae(2)                   2.0           Alpha only; see NOTES
+       setpgrp(2)                  2.0           Alternative      name     for
+       setsockopt(2)               2.0           See notes on socketcall(2)
+       shmat(2)                    2.0           See notes on ipc(2)
+       shmctl(2)                   2.0           See notes on ipc(2)
+       shmdt(2)                    2.0           See notes on ipc(2)
+       shmget(2)                   2.0           See notes on ipc(2)
+       shutdown(2)                 2.0           See notes on socketcall(2)
+       socket(2)                   2.0           See notes on socketcall(2)
+       socketpair(2)               2.0           See notes on socketcall(2)
+                                                 2.0.28/2.2
+       vm86(2)                     2.0.28; 2.2
+       writev(2)                   2.0
+
+
+       breakpoint(2)               2.2           ARM  OABI  only, defined with
+       capget(2)                   2.2
+       capset(2)                   2.2
+       chown(2)                    2.2           See chown(2) for version  de‐
+       getcwd(2)                   2.2
+       getdomainname(2)            2.2           SPARC,  SPARC64; available as
+       getresgid(2)                2.2
+       getresuid(2)                2.2
+       memory_ordering(2)          2.2           SPARC64 only
+       nfsservctl(2)               2.2           Removed in 3.1
+       pciconfig_iobase(2)         2.2.15; 2.4   Not on x86
+       pciconfig_read(2)           2.0.26; 2.2   Not on x86
+       pciconfig_write(2)          2.0.26; 2.2   Not on x86
+       perfctr(2)                  2.2           SPARC only; removed in 2.6.34
+       poll(2)                     2.0.36; 2.2
+       prctl(2)                    2.2
+       pread64(2)                                Added  as "pread" in 2.2; re‐
+       pwrite64(2)                               Added as "pwrite" in 2.2; re‐
+       query_module(2)             2.2           Removed in 2.6
+       rt_sigaction(2)             2.2
+       rt_sigpending(2)            2.2
+       rt_sigprocmask(2)           2.2
+       rt_sigqueueinfo(2)          2.2
+       rt_sigreturn(2)             2.2
+       rt_sigsuspend(2)            2.2
+       rt_sigtimedwait(2)          2.2
+       sendfile(2)                 2.2
+       setresgid(2)                2.2
+       setresuid(2)                2.2
+       sigaltstack(2)              2.2
+       umount2(2)                  2.2
+       utimes(2)                   2.2
+       utrap_install(2)            2.2           SPARC64 only
+       vfork(2)                    2.2
+                                                 2.0.28/2.2
+       vm86(2)                     2.0.28; 2.2
+
+
+       chown32(2)                  2.4
+       clone2(2)                   2.4           IA-64 only
+       fchown32(2)                 2.4
+       fcntl64(2)                  2.4
+       fgetxattr(2)                2.6; 2.4.18
+       flistxattr(2)               2.6; 2.4.18
+       fremovexattr(2)             2.6; 2.4.18
+       fsetxattr(2)                2.6; 2.4.18
+       fstat64(2)                  2.4
+       ftruncate64(2)              2.4
+       getdents64(2)               2.4
+       getegid32(2)                2.4
+       geteuid32(2)                2.4
+       getgid32(2)                 2.4
+       getgroups32(2)              2.4
+       getresgid32(2)              2.4
+       getresuid32(2)              2.4
+       gettid(2)                   2.4.11
+       getuid32(2)                 2.4
+       getunwind(2)                2.4.8         IA-64 only; deprecated
+       getxattr(2)                 2.6; 2.4.18
+       lchown32(2)                 2.4
+       lgetxattr(2)                2.6; 2.4.18
+       listxattr(2)                2.6; 2.4.18
+       llistxattr(2)               2.6; 2.4.18
+       lremovexattr(2)             2.6; 2.4.18
+       lsetxattr(2)                2.6; 2.4.18
+       lstat64(2)                  2.4
+       madvise(2)                  2.4
+       mincore(2)                  2.4
+       mmap2(2)                    2.4
+       old_getrlimit(2)            2.4           Old  variant  of getrlimit(2)
+       oldumount(2)                2.4.116       Name  of  the  old  umount(2)
+       pciconfig_iobase(2)         2.2.15; 2.4   Not on x86
+       perfmonctl(2)               2.4           IA-64 only; removed in 5.10
+       pivot_root(2)               2.4
+       readahead(2)                2.4.13
+       removexattr(2)              2.6; 2.4.18
+       semtimedop(2)               2.6; 2.4.22
+       sendfile64(2)               2.6; 2.4.19
+       setfsgid32(2)               2.4
+       setfsuid32(2)               2.4
+       setgid32(2)                 2.4
+       setgroups32(2)              2.4
+       setregid32(2)               2.4
+       setresgid32(2)              2.4
+       setresuid32(2)              2.4
+       setreuid32(2)               2.4
+       setuid32(2)                 2.4
+       setxattr(2)                 2.6; 2.4.18
+       stat64(2)                   2.4
+       tkill(2)                    2.6; 2.4.22
+       truncate64(2)               2.4
+       ugetrlimit(2)               2.4
+       usr26(2)                    2.4.8.1       ARM OABI only
+       usr32(2)                    2.4.8.1       ARM OABI only
+
+       accept4(2)                  2.6.28
+       add_key(2)                  2.6.10
+       arch_prctl(2)               2.6           x86_64, x86 since 4.12
+       atomic_barrier(2)           2.6.34        m68k only
+       atomic_cmpxchg_32(2)        2.6.34        m68k only
+                                                 since 2.6
+       clock_adjtime(2)            2.6.39
+       clock_getres(2)             2.6
+       clock_gettime(2)            2.6
+       clock_nanosleep(2)          2.6
+       clock_settime(2)            2.6
+       dup3(2)                     2.6.27
+       epoll_create(2)             2.6
+       epoll_create1(2)            2.6.27
+       epoll_ctl(2)                2.6
+       epoll_pwait(2)              2.6.19
+       epoll_wait(2)               2.6
+       eventfd(2)                  2.6.22
+       eventfd2(2)                 2.6.27
+       exit_group(2)               2.6
+       faccessat(2)                2.6.16
+       fadvise64(2)                2.6
+       fadvise64_64(2)             2.6
+       fallocate(2)                2.6.23
+       fanotify_init(2)            2.6.37
+       fanotify_mark(2)            2.6.37
+       fchmodat(2)                 2.6.16
+       fchownat(2)                 2.6.16
+       fgetxattr(2)                2.6; 2.4.18
+       flistxattr(2)               2.6; 2.4.18
+       fremovexattr(2)             2.6; 2.4.18
+       fsetxattr(2)                2.6; 2.4.18
+       fstatat64(2)                2.6.16
+       fstatfs64(2)                2.6
+       futex(2)                    2.6
+       futimesat(2)                2.6.16
+       get_mempolicy(2)            2.6.6
+       get_robust_list(2)          2.6.17
+       get_thread_area(2)          2.6
+       getcpu(2)                   2.6.19
+       getdtablesize(2)            2.0           SPARC  (removed  in  2.6.26),
+                                                 up to Linux 2.6.26
+       getxattr(2)                 2.6; 2.4.18
+       inotify_add_watch(2)        2.6.13
+       inotify_init(2)             2.6.13
+       inotify_init1(2)            2.6.27
+       inotify_rm_watch(2)         2.6.13
+       io_cancel(2)                2.6
+       io_destroy(2)               2.6
+       io_getevents(2)             2.6
+       io_setup(2)                 2.6
+       io_submit(2)                2.6
+       ioprio_get(2)               2.6.13
+       ioprio_set(2)               2.6.13
+       kexec_load(2)               2.6.13
+       keyctl(2)                   2.6.10
+       lgetxattr(2)                2.6; 2.4.18
+       linkat(2)                   2.6.16
+       listxattr(2)                2.6; 2.4.18
+       llistxattr(2)               2.6; 2.4.18
+       lookup_dcookie(2)           2.6
+       lremovexattr(2)             2.6; 2.4.18
+       lsetxattr(2)                2.6; 2.4.18
+       mbind(2)                    2.6.6
+       migrate_pages(2)            2.6.16
+       mkdirat(2)                  2.6.16
+       mknodat(2)                  2.6.16
+       move_pages(2)               2.6.18
+       mq_getsetattr(2)            2.6.6
+       mq_notify(2)                2.6.6
+       mq_open(2)                  2.6.6
+       mq_timedreceive(2)          2.6.6
+       mq_timedsend(2)             2.6.6
+       mq_unlink(2)                2.6.6
+       name_to_handle_at(2)        2.6.39
+       newfstatat(2)               2.6.16        See stat(2)
+       open_by_handle_at(2)        2.6.39
+       openat(2)                   2.6.16
+       perf_event_open(2)          2.6.31        Was  perf_counter_open()   in
+                                                 2.6.31; renamed in 2.6.32
+       perfctr(2)                  2.2           SPARC only; removed in 2.6.34
+       pipe2(2)                    2.6.27
+       ppoll(2)                    2.6.16
+                                                 named "pread64" in 2.6
+       preadv(2)                   2.6.30
+       prlimit64(2)                2.6.36
+       pselect6(2)                 2.6.16
+                                                 named "pwrite64" in 2.6
+       pwritev(2)                  2.6.30
+       query_module(2)             2.2           Removed in 2.6
+       readlinkat(2)               2.6.16
+       recvmmsg(2)                 2.6.33
+       remap_file_pages(2)         2.6           Deprecated since 3.16
+       removexattr(2)              2.6; 2.4.18
+       renameat(2)                 2.6.16
+       request_key(2)              2.6.10
+       restart_syscall(2)          2.6
+       rt_tgsigqueueinfo(2)        2.6.31
+       rtas(2)                     2.6.2         PowerPC/PowerPC64 only
+       sched_get_affinity(2)       2.6           Name of  sched_getaffinity(2)
+       sched_getaffinity(2)        2.6
+       sched_set_affinity(2)       2.6           Name  of sched_setaffinity(2)
+       sched_setaffinity(2)        2.6
+       semtimedop(2)               2.6; 2.4.22
+       sendfile64(2)               2.6; 2.4.19
+       set_mempolicy(2)            2.6.6
+       set_robust_list(2)          2.6.17
+       set_thread_area(2)          2.6
+       set_tid_address(2)          2.6
+       set_tls(2)                  2.6.11        ARM OABI/EABI only  (constant
+       setxattr(2)                 2.6; 2.4.18
+       signalfd(2)                 2.6.22
+       signalfd4(2)                2.6.27
+       spill(2)                    2.6.13        Xtensa only
+       splice(2)                   2.6.17
+       spu_create(2)               2.6.16        PowerPC/PowerPC64 only
+       spu_run(2)                  2.6.16        PowerPC/PowerPC64 only
+       statfs64(2)                 2.6
+       subpage_prot(2)             2.6.25        PowerPC/PowerPC64 only
+       swapcontext(2)              2.6.3         PowerPC/PowerPC64 only
+       symlinkat(2)                2.6.16
+       sync_file_range(2)          2.6.17
+       sync_file_range2(2)         2.6.22
+       syncfs(2)                   2.6.39
+       sys_debug_setcontext(2)     2.6.11        PowerPC only
+       sysmips(2)                  2.6.0         MIPS only
+       tee(2)                      2.6.17
+       tgkill(2)                   2.6
+       timer_create(2)             2.6
+       timer_delete(2)             2.6
+       timer_getoverrun(2)         2.6
+       timer_gettime(2)            2.6
+       timer_settime(2)            2.6
+       timerfd_create(2)           2.6.25
+       timerfd_gettime(2)          2.6.25
+       timerfd_settime(2)          2.6.25
+       tkill(2)                    2.6; 2.4.22
+       unlinkat(2)                 2.6.16
+       unshare(2)                  2.6.16
+       utimensat(2)                2.6.22
+       vmsplice(2)                 2.6.17
+       waitid(2)                   2.6.10
+       xtensa(2)                   2.6.13        Xtensa only

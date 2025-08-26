@@ -1,0 +1,25 @@
+       arc_gettls(2)               3.9           ARC only
+       arc_settls(2)               3.9           ARC only
+       bpf(2)                      3.18
+       execveat(2)                 3.19
+       finit_module(2)             3.8
+       getrandom(2)                3.17
+       kcmp(2)                     3.5
+       kern_features(2)            3.7           SPARC64 only
+       kexec_file_load(2)          3.17
+       membarrier(2)               3.17
+       memfd_create(2)             3.17
+       nfsservctl(2)               2.2           Removed in 3.1
+       or1k_atomic(2)              3.1           OpenRISC 1000 only
+       process_vm_readv(2)         3.2
+       process_vm_writev(2)        3.2
+       remap_file_pages(2)         2.6           Deprecated since 3.16
+       renameat2(2)                3.15
+       s390_runtime_instr(2)       3.7           s390 only
+       s390_pci_mmio_read(2)       3.19          s390 only
+       s390_pci_mmio_write(2)      3.19          s390 only
+       sched_getattr(2)            3.14
+       sched_setattr(2)            3.14
+       seccomp(2)                  3.17
+       sendmmsg(2)                 3.0
+       setns(2)                    3.0

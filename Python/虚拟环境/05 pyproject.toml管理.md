@@ -1,6 +1,6 @@
 ---
 create: '2025-07-27'
-modified: '2025-07-27'
+modified: '2025-08-09'
 ---
 
 # pyproject.toml管理

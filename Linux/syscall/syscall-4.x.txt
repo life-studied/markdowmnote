@@ -1,0 +1,18 @@
+       arc_usr_cmpxchg(2)          4.9           ARC only
+       arch_prctl(2)               2.6           x86_64, x86 since 4.12
+       copy_file_range(2)          4.5
+       get_tls(2)                  4.15          ARM OABI only,  has  __ARM_NR
+       io_pgetevents(2)            4.18
+       mlock2(2)                   4.4
+       pkey_alloc(2)               4.8
+       pkey_free(2)                4.8
+       pkey_mprotect(2)            4.8
+       preadv2(2)                  4.6
+       pwritev2(2)                 4.6
+       riscv_flush_icache(2)       4.15          RISC-V only
+       rseq(2)                     4.18
+       s390_sthyi(2)               4.15          s390 only
+       s390_guarded_storage(2)     4.12          s390 only
+       statx(2)                    4.11
+       switch_endian(2)            4.1           PowerPC64 only
+       userfaultfd(2)              4.3
