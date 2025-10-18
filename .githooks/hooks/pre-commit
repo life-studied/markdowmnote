@@ -1,0 +1,28 @@
+#!/bin/sh
+# pre-commit
+
+# check if script in dir .git/hooks
+# change dir to the script directory
+cd "$(dirname "$0")"
+current_dir=$(pwd)
+echo "Current directory: $current_dir"
+if [[ "$current_dir" != *".git/hooks" ]]; then
+    echo "Error: This script must be run from a directory ending with .git/hooks."
+    echo "Current directory: $current_dir"
+    exit 1
+fi
+
+# check python exists
+if ! command -v python &> /dev/null; then
+    echo "python could not be found"
+    exit 1
+fi
+
+# Run the Python script for pre-commit checks
+python ../../commit.py
+
+# Check the exit status of the Python script
+if [ $? -ne 0 ]; then
+    echo "Pre-commit checks failed."
+    exit 1
+fi
