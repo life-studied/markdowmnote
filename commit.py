@@ -22,6 +22,11 @@ def main(prefix="notes"):
     for file_path in new_files + modified_files:
         cf.add_yaml_front_matter_to_md_files(prefix + "/" + file_path)
 
+    # 将修改后的文件添加到暂存区
+    if new_files or modified_files:
+        repo = fd.Repo(prefix)
+        repo.index.add(new_files + modified_files)
+        print("Staged updated files.")
 
 if __name__ == "__main__":
     # 获取脚本所在位置，切换工作目录到此位置
