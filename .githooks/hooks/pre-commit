@@ -19,7 +19,11 @@ if ! command -v python &> /dev/null; then
 fi
 
 # Run the Python script for pre-commit checks
-python ../../commit.py
+echo "Running pre-commit checks..."
+cd ../..
+python commit.py
+echo "Pre-commit checks completed."
+
 
 # Check the exit status of the Python script
 if [ $? -ne 0 ]; then
