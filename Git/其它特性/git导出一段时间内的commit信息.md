@@ -1,9 +1,11 @@
 ---
 create: '2025-06-04'
-modified: '2025-06-04'
+modified: '2025-10-19'
 ---
 
 # git导出一段时间内的commit信息
+
+此内容目的是将git的commit相关内容导出成文本形式，供AI阅读分析。
 
 ## shell
 
