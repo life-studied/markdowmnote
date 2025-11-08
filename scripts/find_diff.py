@@ -7,23 +7,19 @@ def get_diff_files(repo_path):
     new_file_list = []
     modified_file_list = []
 
-    # 获取所有未暂存的更改
-    # diff_unstaged = repo.index.diff(None)
+    # 1. 把暂存区固化成树对象
+    index_tree_sha = repo.index.write_tree()
 
-    # 获取新增但未暂存的文件
-    untracked_files = repo.untracked_files
+    # 2. 对比 HEAD → 暂存区树，发生了什么变化
+    diff_staged = repo.head.commit.diff(other=index_tree_sha)
 
-    # 获取暂存区的更改
-    diff_staged = repo.index.diff("HEAD")
-
-    # 新增文件
-    for untracked_file in untracked_files:
-        new_file_list.append(untracked_file)
-
-    # 修改文件
     for diff_item in diff_staged:
+        # 修改文件
         if diff_item.change_type == 'M':
             modified_file_list.append(diff_item.b_path)
+        # 新增文件
+        elif diff_item.change_type == 'A':
+            new_file_list.append(diff_item.b_path)
 
     return new_file_list, modified_file_list
 

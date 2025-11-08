@@ -4,7 +4,7 @@ import scripts.find_diff as fd
 import scripts.check_fronter as cf
 
 
-def main(prefix="notes"):
+def main(prefix):
     prefix = prefix.replace("\\", "/")
 
     if not os.path.exists(prefix):
@@ -32,4 +32,4 @@ if __name__ == "__main__":
     # 获取脚本所在位置，切换工作目录到此位置
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     print("work dir:", os.getcwd())
-    main(".")
+    main(os.getcwd())
