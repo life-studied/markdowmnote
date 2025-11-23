@@ -1,6 +1,6 @@
 ---
 create: '2025-07-27'
-modified: '2025-09-15'
+modified: '2025-11-23'
 ---
 
 # pyproject.toml管理
@@ -44,8 +44,13 @@ pyproject.toml虽然解决了一些问题，但是编写pyproject.toml需要手�
 ## 3. uv
 
 ```shell
-# new
+# new a project
 uv init -p 3.12
+
+# create venv
+uv venv --python 3.12
+
+# add dependency
 uv add pytorch
 
 # use toml
@@ -60,13 +65,19 @@ uv puthon list	# 列出所有版本
 uv python install cpython-3.12	# 安装cpyhon3.12
 ```
 
-### init项目并指定py版本
+### 初始化项目结构
 
 ```shell
 uv init -p 3.12
 ```
 
-### 安装依赖（自动创建venv）
+### 创建虚拟环境
+
+```shell
+uv venv --python 3.12
+```
+
+### 安装依赖
 
 ```shell
 uv add pytorch
