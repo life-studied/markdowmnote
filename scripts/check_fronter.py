@@ -34,6 +34,9 @@ def add_yaml_front_matter_to_md_files(file_path):
         post["modified"] = file_modified_time
         print(f"\tAdded 'create' date to {file_path}")
         print(f"\tAdded 'modified' date in {file_path}")
+
+    if post["keywords"] is None:
+        print(f"\tWarning: 'keywords' missing | {file_path}")
     
     # 将post替换为新的frontmatter
     with open(file_path, "w", encoding="utf-8") as file:
