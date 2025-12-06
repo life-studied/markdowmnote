@@ -11,7 +11,7 @@ modified: '2025-03-28'
 
 * `rewrite.sh`：本脚本用于恢复笔记文件时间戳到git最近一次提交的时间戳，以保证笔记仓库移动后，博客系统正常工作，已弃用。
 * `count.sh`：本脚本用于统计笔记数量。
-* `commit.py`：本脚本用于快速commit，并生成yaml fronter。
+* `commit.py`：本脚本用于快速commit，自动生成yaml front matter。
 * `checknew.sh`：本脚本用于服务器上检查remote更新。
 
 ## 1. 编程语言

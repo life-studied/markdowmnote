@@ -22,7 +22,6 @@ fi
 echo "Running pre-commit checks..."
 cd ../..
 python commit.py
-echo "Pre-commit checks completed."
 
 
 # Check the exit status of the Python script
@@ -30,3 +29,5 @@ if [ $? -ne 0 ]; then
     echo "Pre-commit checks failed."
     exit 1
 fi
+
+echo "Pre-commit checks completed."
