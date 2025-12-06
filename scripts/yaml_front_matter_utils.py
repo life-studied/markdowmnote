@@ -29,6 +29,7 @@ def check_field_keywords(post):
         print(f"\tWarning, 'keywords' missing")
 
 def pre_check_field_keywords(prefix, new_and_modify_files_name):
+    keywords_missing = False
     # 预检查 md 文件是否有keywords字段
     for file_name in new_and_modify_files_name:
         file_path = prefix + "/" + file_name
