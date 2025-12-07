@@ -14,7 +14,7 @@ def get_file_modify_time_from(file_path):
 
 
 def add_field_create_to(post, file_modified_time):
-    if post["create"] is None:
+    if post.get("create") is None:
         post["create"] = file_modified_time
         print(f"\tAdded 'create' field")
 
@@ -25,7 +25,7 @@ def add_field_modify_to(post, file_modified_time):
 
 
 def check_field_keywords(post):
-    if post["keywords"] is None:
+    if post.get("keywords") is None:
         print(f"\tWarning, 'keywords' missing")
 
 def pre_check_field_keywords(prefix, new_and_modify_files_name):
@@ -39,10 +39,11 @@ def pre_check_field_keywords(prefix, new_and_modify_files_name):
             keywords_missing = True
     
     if keywords_missing:
-        print("keywords missing in some files, continue? (Y/n): ", end="")
-        ans = input().strip().lower() or 'y'
-        if ans != 'y':
-            print("Aborted by user.")
+        if os.environ.get('SKIP_KEYWORD_CHECK'):
+            print("Warning: keywords missing, but SKIP_KEYWORD_CHECK set, continue.")
+        else:
+            print("Error: 'keywords' field missing in some files.")
+            print("Set SKIP_KEYWORD_CHECK=1 to skip this check.")
             exit(1)
 
 

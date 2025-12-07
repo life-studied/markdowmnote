@@ -1,6 +1,6 @@
 ---
 create: 2023-08-01
-modified: '2025-03-28'
+modified: '2025-12-07'
 ---
 
 # Readme
@@ -13,6 +13,7 @@ modified: '2025-03-28'
 * `count.sh`：本脚本用于统计笔记数量。
 * `commit.py`：本脚本用于快速commit，自动生成yaml front matter。
 * `checknew.sh`：本脚本用于服务器上检查remote更新。
+* `install.bat`：本脚本用于释放笔记的一些配置到本地。
 
 ## 1. 编程语言
 
