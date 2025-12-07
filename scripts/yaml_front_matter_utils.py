@@ -43,7 +43,8 @@ def pre_check_field_keywords(prefix, new_and_modify_files_name):
             print("Warning: keywords missing, but SKIP_KEYWORD_CHECK set, continue.")
         else:
             print("Error: 'keywords' field missing in some files.")
-            print("Set SKIP_KEYWORD_CHECK=1 to skip this check.")
+            print("Use SKIP_KEYWORD_CHECK=1 to skip this check.")
+            print("Use $env:SKIP_KEYWORD_CHECK=1; to skip this check.")
             exit(1)
 
 
