@@ -1,0 +1,15 @@
+# sandboxie核心介绍
+
+## 核心驱动
+
+sandboxie的核心驱动是`SbieDrv.sys`，它是作者持有了微软的**代码签名证书**，在每次驱动代码发生更改时，使用 Windows SDK 的 `signtool` 工具对驱动在本地完成签名工作。
+
+## 插件系统
+
+
+
+
+
+## 参考项目
+
+* [VeroFess/SbieHide: Try to hide Sndboxie](https://github.com/VeroFess/SbieHide)
